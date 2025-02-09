@@ -57,11 +57,28 @@
 
 @layer base {
   html {
-    @apply scroll-smooth;
+    @apply scroll-smooth antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    @apply bg-default text-default-foreground antialiased;
+    @apply bg-default text-default-foreground font-sans;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+
+  /* Smooth appearance for sections */
+  section {
+    @apply animate-fade-in;
+  }
+
+  /* Smooth appearance for section content */
+  section > div {
+    @apply animate-fade-up;
   }
 
   * {
@@ -78,4 +95,27 @@
 
 .animate-pulse {
   animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Selection */
+::selection {
+  @apply bg-primary/20 text-default-foreground;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-default;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/20 rounded-full hover:bg-primary/30 transition-colors;
+}
+
+/* Focus outline */
+:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2 ring-offset-default rounded-lg;
 }
