@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { motion } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 import { useTheme } from '@/entities/theme';
+import { Container } from '@/shared/ui/layouts';
 
 const navItems = [
   { href: '#experience', label: 'Опыт' },
@@ -46,7 +46,7 @@ export const Footer: FC = () => {
         ? "bg-[#0B1120]/50 border-t border-cyan-500/10" 
         : "bg-white/30 border-t border-slate-200/50 backdrop-blur-sm"
     )}>
-      {/* Decorative Elements - moved to top and added z-index: -1 */}
+      {/* Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className={cn(
           "absolute inset-0 opacity-5",
@@ -62,7 +62,7 @@ export const Footer: FC = () => {
       )}
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-12 relative">
+      <Container className="py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Description */}
           <div className="space-y-6">
@@ -149,7 +149,7 @@ export const Footer: FC = () => {
             </h3>
             <div className="space-y-4">
               <a 
-                href="mailto:k.rogozhkin@gmail.com"
+                href="mailto:konstantin@rogozhkin.com"
                 className={cn(
                   "text-sm flex items-center gap-3 group",
                   isDark 
@@ -167,7 +167,7 @@ export const Footer: FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                k.rogozhkin@gmail.com
+                konstantin@rogozhkin.com
               </a>
               <a 
                 href="https://www.google.com/maps/place/Mar+del+Plata,+Buenos+Aires,+Argentina"
@@ -206,7 +206,7 @@ export const Footer: FC = () => {
         )}>
           © {new Date().getFullYear()} Konstantin Rogozhkin. All rights reserved.
         </div>
-      </div>
+      </Container>
     </footer>
   );
 }; 
