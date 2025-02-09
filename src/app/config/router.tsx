@@ -1,7 +1,10 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { lazy } from 'react';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { MainLayout } from '../layouts/MainLayout';
-import { HomePage } from '../../pages/home';
-import { NotFoundPage } from '../../pages/not-found';
+
+// Lazy loaded pages
+const HomePage = lazy(() => import('@/pages/home').then(module => ({ default: module.default })));
+const NotFoundPage = lazy(() => import('@/pages/not-found').then(module => ({ default: module.default })));
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +15,10 @@ export const router = createBrowserRouter([
       {
         index: true,
         element: <HomePage />,
+      },
+      {
+        path: '*',
+        element: <Navigate to="/" replace />,
       },
     ],
   },

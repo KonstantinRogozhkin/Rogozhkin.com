@@ -15,19 +15,27 @@ export default {
     },
     extend: {
       colors: {
+        default: {
+          DEFAULT: 'rgb(var(--color-default) / <alpha-value>)',
+          foreground: 'rgb(var(--color-default-foreground) / <alpha-value>)',
+        },
+        card: {
+          DEFAULT: 'rgb(var(--color-card) / <alpha-value>)',
+          foreground: 'rgb(var(--color-card-foreground) / <alpha-value>)',
+        },
+        primary: {
+          DEFAULT: 'rgb(var(--color-primary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-primary-foreground) / <alpha-value>)',
+        },
+        secondary: {
+          DEFAULT: 'rgb(var(--color-secondary) / <alpha-value>)',
+          foreground: 'rgb(var(--color-secondary-foreground) / <alpha-value>)',
+        },
         border: 'hsl(var(--border))',
         input: 'hsl(var(--input))',
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        primary: {
-          DEFAULT: 'hsl(var(--primary))',
-          foreground: 'hsl(var(--primary-foreground))',
-        },
-        secondary: {
-          DEFAULT: 'hsl(var(--secondary))',
-          foreground: 'hsl(var(--secondary-foreground))',
-        },
         destructive: {
           DEFAULT: 'hsl(var(--destructive))',
           foreground: 'hsl(var(--destructive-foreground))',
@@ -43,10 +51,6 @@ export default {
         popover: {
           DEFAULT: 'hsl(var(--popover))',
           foreground: 'hsl(var(--popover-foreground))',
-        },
-        card: {
-          DEFAULT: 'hsl(var(--card))',
-          foreground: 'hsl(var(--card-foreground))',
         },
       },
       borderRadius: {

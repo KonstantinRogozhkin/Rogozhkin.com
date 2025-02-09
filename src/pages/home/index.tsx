@@ -1,10 +1,10 @@
-export const HomePage = () => {
+import { Hero } from '@/widgets/Hero/Hero';
+
+export default function HomePage() {
   return (
-    <div className='flex flex-col items-center justify-center space-y-4'>
-      <h1 className='text-4xl font-bold'>Welcome to Rogozhkin.com</h1>
-      <p className='text-lg text-muted-foreground'>
-        Personal website and portfolio
-      </p>
-    </div>
+    <>
+      <Hero />
+      {/* Другие секции будут добавлены здесь */}
+    </>
   );
-}; 
+} 
