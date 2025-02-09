@@ -90,13 +90,13 @@ export const Contact: FC = () => {
                           isDark ? "text-cyan-100" : "text-zinc-700"
                         )}>Email</div>
                         <a 
-                          href="mailto:contact@rogozhkin.com" 
+                          href="mailto:konstantin@rogozhkin.com" 
                           className={cn(
                             "inline-flex items-center gap-1 transition-colors",
                             isDark ? "text-cyan-400 hover:text-cyan-300" : "text-indigo-600 hover:text-indigo-500"
                           )}
                         >
-                          contact@rogozhkin.com
+                          konstantin@rogozhkin.com
                           <span className="text-xs opacity-50">↗</span>
                         </a>
                       </div>
@@ -185,7 +185,7 @@ export const Contact: FC = () => {
                     </motion.a>
 
                     <motion.a 
-                      href="https://github.com/rogozhkin" 
+                      href="https://github.com/KonstantinRogozhkin" 
                       target="_blank"
                       rel="noopener noreferrer"
                       whileHover={{ scale: 1.02, y: -2 }}
