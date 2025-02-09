@@ -1,0 +1,27 @@
+---
+description: Cтруктура фронтенд проекта src/entities/theme
+globs: src/entities/*
+---
+### src/entities/theme
+Бизнес-сущности приложения.
+- `theme/` - Логика и компоненты для работы с темой приложения @theme.constants.ts 
+  - `lib/` - Хуки и утилиты для работы с темой
+    - `hooks/`
+      - [useTheme.ts](mdc:src/entities/theme/lib/hooks/useTheme.ts) - Хук для доступа к контексту темы и управления 
+
+- `theme/model/` - Бизнес-логика, типы и контекст темы
+    - `constants/`
+      - `theme.constants.ts` - Константы для работы с темой (THEME_STORAGE_KEY, THEMES)
+    - `context/`
+      - `ThemeContext.tsx` - Контекст React для управления состоянием темы, включая:
+        - Определение начальной темы
+        - Синхронизацию с системными настройками
+        - Сохранение выбора в localStorage
+    - `types/`
+      - `theme.ts` - Типы и интерфейсы для темы (Theme, ThemeContextValue)
+
+- `theme/ui/` - Компоненты для управления темой
+    - `ThemeSwitcher/`
+      - `ThemeSwitcher.tsx` - Компонент переключателя темы со слайдером и иконками (солнце/луна)
+    - `ThemeToggle/`
+      - `ThemeToggle.tsx` - Упрощенный компонент переключения темы в виде кнопки с эмодзи

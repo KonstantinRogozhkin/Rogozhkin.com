@@ -1,0 +1,31 @@
+---
+description: Cтруктура фронтенд проекта src/shared/
+globs: src/shared/*
+---
+
+-для базовых компонентов нужно писать Storybook истории
+
+### src/shared/
+Переиспользуемый код, независимый от бизнес-логики.
+- `config/` - Конфигурации (роуты, i18n, и т.д.)
+- `ui/` - Базовые UI компоненты
+- `types/` - Общие типы
+- `assets/` - Статические ресурсы
+- `stories/` - папка Storybook для mdx документации
+- `lib/` - Утилиты и хелперы: [formatDate.ts](mdc:src/shared/lib/utils/formatDate.ts), [sanitize.ts](mdc:src/shared/lib/utils/sanitize.ts)
+
+
+shared/
+├── assets/ # Статические ресурсы (иконки, изображения)
+│ └── icons/
+├── config/ # Конфигурации сторонних сервисов и приложения
+│ ├── apollo/ # Настройки Apollo Client
+│ ├── axios/ # Конфиг HTTP-клиента
+│ ├── i18n/ # Локализация и переводы
+│ └── supabase/ # Настройки Supabase
+├── lib/ # Вспомогательные библиотеки
+│ ├── hooks/ # Кастомные хуки
+│ └── utils/ # Утилиты и хелперы
+├── types/ # Глобальные типы TypeScript
+└── ui/ # UI-компоненты общего назначения
+│ └── ActionPannel/ # Пример UI компонента

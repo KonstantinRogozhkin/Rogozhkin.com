@@ -1,0 +1,13 @@
+---
+description: Cтруктура проекта src/app/
+globs: src/app/*
+---
+## src/app/ 
+Корневой уровень приложения, содержащий основные конфигурации и инициализацию.
+- `App.tsx` [App.tsx](mdc:src/app/App.tsx) - Корневой компонент приложения, определяющий основные маршруты и layouts
+- `main.tsx` [main.tsx](mdc:src/app/main.tsx) - Точка входа приложения, инициализация React, роутинга, Sentry и других глобальных сервисов
+
+- `dashboardLayout/` [DashboardLayout.tsx](mdc:src/app/dashboardLayout/DashboardLayout.tsx)  - Компоненты layout'а для панели управления
+- `styles/` - Глобальные стили и темы: 
+- `types/` - Фаилы деклараций TypeScript  для всего приложения
+- src/shared - 

@@ -1,0 +1,295 @@
+---
+description: Implementation Protocol: USE THIS RULES FOR ALL TASKS (working with first analyze and create task with full details)
+globs: 
+---
+# IMPLEMENTATION TASK [THE FOLLOWING TASK MUST BE PROCESSED ACCORDING TO THE PROTOCOL BELOW]
+
+# Implementation Protocol
+
+## Required Documentation Review
+
+Before starting any implementation, the following documentation MUST be reviewed if relevant to the task:
+
+### Core Architecture and Structure
+- `docs/structure.md` - Project structure and architecture
+- `docs/project-architecture.md` - Detailed architecture guidelines
+- `docs/project-overview.md` - General project overview
+- `docs/routing.md` - Routing architecture and rules
+
+### Development Guidelines
+- `docs/pre-commit-hooks.md` - Pre-commit hooks and code quality rules
+- `docs/commit-convention.md` - Commit message conventions
+
+### AI Assistant Guidelines
+- `docs/ai-assistant.md` - AI assistant specific instructions
+- `docs/example-prompts.md` - Example prompts and patterns
+
+The AI MUST:
+
+1. Review all documentation relevant to the task
+2. Explicitly mention which docs were reviewed
+3. Reference specific sections from docs when making decisions
+4. Update documentation if changes affect any architectural decisions
+
+## Architecture Rules
+
+- Follow Feature-Sliced Design (FSD v2+) principles
+- Respect layer boundaries (app → pages → widgets → features → entities → shared)
+- Avoid circular dependencies between layers
+- Each layer can only import from public API of lower layers
+- Each segment should have model/, api/, and ui/ folders where applicable
+
+## Technical Context
+
+- React 18.3.1 with TypeScript 5.6.2
+- Zustand for state management
+- TanStack Query for data fetching
+- Tailwind CSS for styling
+- Sentry for error monitoring
+- React Router 7.1.1 for routing
+
+## Pre-commit Checks
+
+- ESLint checks and auto-fixes for TypeScript files
+- Prettier formatting for all files
+- TypeScript type checking
+- TailwindCSS class validation
+- FSD architecture rules validation
+- No usage of 'any' type
+- Unused variables check
+- Import rules according to FSD
+- Route configuration validation
+- Layout component validation
+
+TASK FILE MANAGEMENT:
+
+- First check existing task file in `.tasks/` folder do not create new one if it already exists
+- The AI MUST maintain a task file at `PROJECT_ROOT/.tasks/[CURRENT_DATE]_[TASK_NUMBER]_[TASK_IDENTIFIER].md` where:
+- CURRENT_DATE is obtained by running: `date +%Y-%m-%d`
+- TASK_NUMBER is a number that is incremented for each new task, `ls` the contents of `/.tasks/` to get the correct number
+- TASK_IDENTIFIER is a short identifier for the task, such as "docker-build-migration"
+- Every timestamp in the content MUST be obtained by running: `date +[%H:%M:%S]`
+- The file MUST begin with:
+
+2. Layout Changes:
+
+   - Simple layouts in `shared/ui/layouts/`
+   - Complex layouts with widgets in `app/layouts/`
+   - Verify layout hierarchy
+
+3. Navigation Updates:
+
+   - Use `useAppNavigate` hook for programmatic navigation
+   - Update `NavLink` components if needed
+   - Verify route parameters and types
+
+4. Type Checking:
+   - Validate route parameters
+   - Check navigation types
+   - Verify layout props
+
+## Current Branch
+
+[Name of the current feature branch being worked on]
+
+## Task Progress Below
+
+---
+
+- The file serves as the source of truth for all progress tracking
+- Every status update MUST use the `date` command for timestamps
+- All updates must be logged chronologically under a "Progress" section
+- The file should maintain checkmarks and status in real-time
+- After file creation AI must ask human to confirm that the task file is created and ready to use
+
+GIT BRANCH MANAGEMENT:
+Before starting implementation:
+
+1. Create a new feature branch from master using:
+   `git checkout -b feature/[TASK_IDENTIFIER]`
+2. Add the branch name to the task file under "Current Branch" section
+3. Verify the branch was created and is active:
+   `git branch --show-current`
+4. Ensure pre-commit hooks are active:
+   `cat .husky/pre-commit`
+
+IMPLEMENTATION STEPS:
+STEP 1 - TASK TEMPLATE CREATION:
+You MUST: 0. Check if task file already exists in .tasks/ folder
+
+1. Convert the task into the full template format below and save it to the task file
+2. Show the complete templated task for approval to human
+3. Wait for human confirmation before starting implementation
+
+# Task Template Format
+
+[Format the task using this complete template before starting implementation]
+
+---
+
+# TASK TEMPLATE
+
+---
+
+Task: [Task Name]
+
+## Documentation Review
+
+- Relevant Documentation Reviewed:
+  - [List of reviewed documentation]
+  - [Key findings from each document]
+  - [Applicable rules and guidelines]
+
+## Analysis
+
+- Current Implementation
+  - Affected FSD Layers
+  - Components and Their Interactions
+  - Current State (Zustand/TanStack Query)
+  - Route Configuration
+  - Layout Structure
+- Root Cause
+- System Impact
+
+## Solution
+
+- Proposed Changes
+  - FSD Structure Changes
+  - State Updates
+  - UI/UX Improvements
+  - Route Updates
+  - Layout Modifications
+- Potential Risks
+- Expected Outcome
+
+## Implementation
+
+[Add console.log and Sentry breadcrumbs for execution tracking]
+
+- [ ] Step 1: [Description]
+- [ ] Step 2: [Description]
+- [ ] Step 3: [Description]
+- [ ] Route Testing: Verify all affected routes
+- [ ] Layout Testing: Check layout rendering
+- [ ] Navigation Testing: Verify navigation flow
+- [ ] Cleanup: Remove debug console.log statements
+- [ ] Pre-commit: Run and pass all pre-commit checks
+- [ ] Commit: [Concise description of changes]
+
+## Verification
+
+[Use React DevTools, Sentry, and browser tools]
+
+- [ ] Step 1: Browser checks (Console, Network, React DevTools)
+- [ ] Step 2: Zustand state verification
+- [ ] Step 3: TanStack Query requests check
+- [ ] Step 4: Route parameter validation
+- [ ] Step 5: Layout rendering check
+- [ ] Step 6: Navigation flow testing
+- [ ] Step 7: Performance check
+- [ ] Step 8: TypeScript types verification
+- [ ] Step 9: ESLint and Prettier validation
+- [ ] Step 10: Pre-commit hooks test run
+
+## Documentation
+
+- Implementation Notes
+- FSD Structure Updates
+- API Changes
+- Updated Types
+- Route Changes
+- Layout Updates
+
+## Status
+
+- Current Status
+- Next Action
+- Blockers (if any)
+
+# Processing Rules
+
+1. Review all relevant documentation from `docs/` directory
+2. Document which files were reviewed and key findings
+3. Process the task methodically according to the template sections
+4. **NEVER SAY** "I see the issue..." or "I found the problem" or similar
+5. Ask for clarification if ANY aspect is unclear
+6. For any missing context, search files using `tree` or request specific information
+7. Before starting each new section (Analysis/Solution/Implementation/etc.):
+   - Recap what's been done so far
+   - List what's about to be done
+   - Run pre-commit checks if code was modified
+8. After completing each section:
+   - Summarize what was completed
+   - Show completed checkmarks
+   - State what's coming next
+   - Ensure all pre-commit checks pass
+9. After each implementation step:
+   - Mark the step as complete [x]
+   - Show the full implementation list with progress
+   - Run pre-commit checks
+   - Ask for confirmation before proceeding
+10. Before proceeding to verification:
+    - Show complete implementation checklist
+    - Confirm all steps are done
+    - Get user confirmation to proceed
+11. After human verification:
+    - Show all completed verification steps
+    - Get final confirmation before commit
+12. Mark the task file as completed by renaming the file to `[CURRENT_DATE]_[TASK_NUMBER]_[TASK_IDENTIFIER]_completed.md`
+
+# Progress Tracking Rules
+
+1. At the start:
+
+   - List all relevant documentation to be reviewed
+   - Update task file with: "`date +[%H:%M:%S]` Starting Documentation Review"
+   - Document key findings from documentation review
+   - Update task file with: "`date +[%H:%M:%S]` Starting Task Implementation"
+   - Show current task file status
+   - List all sections to be completed
+
+2. Before each section:
+
+   - Update task file with: "`date +[%H:%M:%S]` Moving on to [Section Name]"
+   - Show completed sections from task file
+   - List upcoming steps
+
+3. After each step completion:
+
+   - Update task file: "`date +[%H:%M:%S]` Completed: [Step Description]"
+   - Update checkmarks in task file
+   - Show updated checklist from task file
+   - Ask for confirmation
+
+4. After each section completion:
+
+   - Update task file with section completion and timestamp
+   - Show all sections with completion status from task file
+   - Update "Progress Updates" section
+   - Run browser tests using `scripts/browser-logger.js` (npm run browser:log) and save screenshots to `screenshots/` folder
+   - Analyze screenshots and log logs/browser.console.log for any issues
+   - If issues are found, fix them and repeat the process
+   - If no issues are found, ask human for final confirmation
+
+5. Before final commit:
+   - Verify all checkmarks in task file
+   - Show complete progress from task file
+   - Get final confirmation
+
+[All status updates and progress tracking should reference and update the task file]
+
+# Final Review
+
+1. Summary of Changes
+2. Impact on FSD Architecture
+3. Documentation Updates
+4. Pre-commit Checks Passed
+5. Route Testing Completed
+6. Layout Verification Done
+7. Confirm Successful Merge to Master
+
+---
+
+# General Project Overview
+
+- See "./README.md" and "./docs/structure.md" for details
