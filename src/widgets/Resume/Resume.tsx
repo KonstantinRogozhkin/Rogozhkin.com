@@ -7,9 +7,9 @@ import { cn } from '@/shared/lib/utils';
 const timeline = [
   {
     period: 'Январь 2024 - Настоящее время',
-    company: 'NEiRA AI',
-    position: 'Founder',
-    description: 'Разработка систем искусственного интеллекта и чат-ботов для автоматизации бизнес-процессов',
+    company: 'NEiRA',
+    position: 'coFounder / CTO',
+    description: 'Разработка AI-агентов, способных автоматизировать любые бизнес-процессы: реклама, продажи, HR и многое другое.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
     )
@@ -17,7 +17,7 @@ const timeline = [
   {
     period: 'Август 2017 - Февраль 2022',
     company: 'AISales',
-    position: 'Chief Technology Officer',
+    position: 'coFounder / CTO',
     description: 'Разработка чат-ботов с использованием NLP и машинного обучения для автоматизации продаж и поддержки клиентов. Создание системы прогнозирования спроса с использованием анализа временных рядов.',
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -26,7 +26,7 @@ const timeline = [
   {
     period: 'Январь 2015 - 2017',
     company: 'CallProfit',
-    position: 'Директор по ИТ',
+    position: 'coFounder / CTO',
     achievements: [
       'Создание и внедрение веб-сайта',
       'Внедрение Bitrix24 CRM',

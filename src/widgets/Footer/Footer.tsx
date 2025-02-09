@@ -66,17 +66,16 @@ export const Footer: FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Description */}
           <div className="space-y-6">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
+            <div
               className={cn(
-                "text-xl font-bold relative inline-block",
+                "text-xl font-bold relative inline-block transition-transform duration-200 hover:scale-[1.02]",
                 isDark 
                   ? "text-cyan-400 after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:blur-lg after:bg-cyan-500/30 after:opacity-0 hover:after:opacity-100 after:transition-opacity"
                   : "bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent"
               )}
             >
               KR
-            </motion.div>
+            </div>
             <div className="space-y-4">
               <p className={cn(
                 "text-sm max-w-md",
@@ -87,14 +86,13 @@ export const Footer: FC = () => {
               </p>
               <div className="flex gap-4">
                 {socialLinks.map((link) => (
-                  <motion.a
+                  <a
                     key={link.href}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1 }}
                     className={cn(
-                      "w-8 h-8 flex items-center justify-center rounded relative group overflow-hidden",
+                      "w-8 h-8 flex items-center justify-center rounded relative group overflow-hidden transition-transform duration-200 hover:scale-[1.05]",
                       "before:absolute before:inset-0 before:opacity-20 before:bg-gradient-to-r before:from-transparent before:via-current before:to-transparent before:translate-x-[-100%]",
                       "hover:before:animate-[shimmer_1s_ease-in-out]",
                       isDark 
@@ -105,7 +103,7 @@ export const Footer: FC = () => {
                     <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                       {link.icon}
                     </svg>
-                  </motion.a>
+                  </a>
                 ))}
               </div>
             </div>
@@ -121,12 +119,11 @@ export const Footer: FC = () => {
             </h3>
             <nav className="grid grid-cols-2 gap-4">
               {navItems.map((item) => (
-                <motion.a
+                <a
                   key={item.href}
                   href={item.href}
-                  whileHover={{ x: 4 }}
                   className={cn(
-                    "text-sm transition-colors flex items-center gap-2 relative",
+                    "text-sm transition-all duration-200 flex items-center gap-2 relative hover:translate-x-1",
                     isDark 
                       ? "text-cyan-100/60 hover:text-cyan-400" 
                       : "text-zinc-600 hover:text-indigo-600"
@@ -137,7 +134,7 @@ export const Footer: FC = () => {
                     isDark ? "bg-cyan-400" : "bg-indigo-600"
                   )} />
                   {item.label}
-                </motion.a>
+                </a>
               ))}
             </nav>
           </div>
@@ -151,9 +148,8 @@ export const Footer: FC = () => {
               Контакты
             </h3>
             <div className="space-y-4">
-              <motion.a 
+              <a 
                 href="mailto:k.rogozhkin@gmail.com"
-                whileHover={{ x: 4 }}
                 className={cn(
                   "text-sm flex items-center gap-3 group",
                   isDark 
@@ -172,21 +168,23 @@ export const Footer: FC = () => {
                   </svg>
                 </div>
                 k.rogozhkin@gmail.com
-              </motion.a>
-              <motion.div 
-                whileHover={{ x: 4 }}
+              </a>
+              <a 
+                href="https://www.google.com/maps/place/Mar+del+Plata,+Buenos+Aires,+Argentina"
+                target="_blank"
+                rel="noopener noreferrer"
                 className={cn(
                   "text-sm flex items-center gap-3 group",
                   isDark 
-                    ? "text-cyan-100/60" 
-                    : "text-zinc-600"
+                    ? "text-cyan-100/60 hover:text-cyan-400" 
+                    : "text-zinc-600 hover:text-indigo-600"
                 )}
               >
                 <div className={cn(
                   "w-8 h-8 rounded flex items-center justify-center shrink-0",
                   isDark 
-                    ? "bg-cyan-500/10 text-cyan-400" 
-                    : "bg-indigo-50 text-indigo-600"
+                    ? "bg-cyan-500/10 text-cyan-400 group-hover:bg-cyan-500/20" 
+                    : "bg-indigo-50 text-indigo-600 group-hover:bg-indigo-100"
                 )}>
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
@@ -194,7 +192,7 @@ export const Footer: FC = () => {
                   </svg>
                 </div>
                 Mar del Plata, Argentina
-              </motion.div>
+              </a>
             </div>
           </div>
         </div>

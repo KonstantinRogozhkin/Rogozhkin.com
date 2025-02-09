@@ -4,6 +4,7 @@ import { router } from './config/router';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Suspense, useEffect } from 'react';
 import { useTheme } from '@/entities/theme';
+import { Container } from '@/shared/ui/layouts';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -18,7 +19,7 @@ const queryClient = new QueryClient({
 function ErrorFallback() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-default">
-      <div className="text-center space-y-4">
+      <Container className="text-center space-y-4">
         <h2 className="text-2xl font-bold text-destructive">Что-то пошло не так</h2>
         <p className="text-default-foreground/60">
           Пожалуйста, обновите страницу или попробуйте позже
@@ -29,7 +30,7 @@ function ErrorFallback() {
         >
           Обновить страницу
         </button>
-      </div>
+      </Container>
     </div>
   );
 }
