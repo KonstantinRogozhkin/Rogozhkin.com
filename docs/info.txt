@@ -1,0 +1,18 @@
+Companies I’ve Successfully Built and Exited
+	1.	Hosting Company (Avihost) – Exited in 2012
+My first startup, launched while I was still in high school, providing hosting solutions. I sold it during my university years.
+	2.	Call Center (CallProfit) – Exited in 2017
+My second startup, co-founded with partners, where I served as the CTO. We built a call center from the ground up, employing up to 100 fully remote staff. I sold my stake to my partners in 2017.
+	3.	Chatbot Development Company (AISales) – Exited in 2022
+This was my most successful project to date. We developed chatbots for companies like Leads.su and a pilot project with TELE2. One flagship product was a chatbot named AIDA, which handled interactions with over 1 million people seeking credit or payday loans. It provided human-like conversations on platforms such as VK, WhatsApp, and Telegram. I also led the creation of an ML-based solution that used time-series analysis and regression models to generate the most relevant links for clients. As CTO and team lead, I managed over 15 developers, implementing Agile and Scrum methodologies.
+	4.	J / D / H / NEIRA – Launched in 2024
+A new AI agent development project aiming to automate a wide range of business processes—sales, HR, project management, and product development. The concept is for humans to act as creators while AI agents function as executors, driving efficiency and innovation.
+
+
+Accomplishments
+	1.	A time I most successfully hacked a non-computer system
+In my fourth year at university, I sold my first company—Avihost, which focused on hosting solutions. It was my very first startup exit from a venture I had founded back in high school. My friend and I wanted to celebrate by traveling to Thailand, which had been our dream for a long time. However, we faced a big challenge: our final exams were starting in just one month, so we couldn’t simply leave. Determined to make it happen, we went to a hospital and managed—through negotiations—to obtain the necessary medical documentation that allowed us to take our exams early. In the end, we completed all our exams with top grades and flew to Thailand, happily celebrating both the sale of my company and our “victory” over the university’s bureaucratic system.
+
+	2.	The most impressive thing I’ve built or achieved (other than this startup)
+One of my proudest achievements was creating and launching a chatbot platform that automated sales and customer support for multiple online businesses, handling interactions with over two million unique users.
+
