@@ -4,133 +4,163 @@ import { motion } from 'framer-motion';
 import { useTheme } from '@/entities/theme';
 import { cn } from '@/shared/lib/utils';
 
-const experiences = [
-  {
-    period: '2020 - настоящее время',
-    company: 'AISales',
-    position: 'Lead AI Engineer',
-    description: 'Разработка и внедрение AI-решений для автоматизации продаж. Создание чат-ботов с использованием NLP.'
-  },
-  {
-    period: '2018 - 2020',
-    company: 'DataCraft',
-    position: 'Senior Data Scientist',
-    description: 'Разработка систем прогнозирования и аналитики. Оптимизация бизнес-процессов с помощью ML.'
-  },
-  {
-    period: '2015 - 2018',
-    company: 'TechInnovate',
-    position: 'ML Engineer',
-    description: 'Создание и внедрение ML-моделей для анализа данных и автоматизации процессов.'
-  }
-];
-
 export const Experience: FC = () => {
   const { theme } = useTheme();
   const isDark = theme === 'dark';
 
+  const skills = [
+    {
+      title: 'Предпринимательство',
+      description: 'Успешный опыт создания и развития технологических стартапов, от идеи до прибыльного бизнеса.',
+      items: ['Стратегия', 'Масштабирование', 'Монетизация', 'Управление', 'Развитие бизнеса']
+    },
+    {
+      title: 'Продуктовая разработка',
+      description: 'Глубокая экспертиза в создании продуктов: от исследования рынка и тестирования гипотез до запуска и роста.',
+      items: ['Product Discovery', 'Customer Development', 'MVP', 'Product Market Fit', 'Growth Hacking']
+    },
+    {
+      title: 'Искусственный Интеллект',
+      description: 'Глубокая экспертиза в разработке и внедрении AI-решений, включая GPT, ML и NLP технологии.',
+      items: ['GPT', 'ML', 'NLP', 'Neural Networks', 'Computer Vision']
+    },
+    {
+      title: 'IT / AI Разработка',
+      description: 'Создание высоконагруженных систем и микросервисов с использованием современного стека технологий.',
+      items: ['Python', 'TypeScript', 'React', 'Node.js', 'Микросервисы']
+    },
+    {
+      title: 'Исследования',
+      description: 'Проведение глубоких исследований рынка, анализ конкурентов и тестирование продуктовых гипотез.',
+      items: ['Market Research', 'A/B Testing', 'User Research', 'Data Analysis', 'Конкурентный анализ']
+    },
+    {
+      title: 'Аналитика',
+      description: 'Анализ данных, построение прогнозных моделей и оптимизация бизнес-процессов.',
+      items: ['Big Data', 'Data Science', 'BI', 'Analytics', 'Прогнозирование']
+    }
+  ];
+
   return (
-    <Section 
-      id="experience" 
+    <Section
+      id="experience"
       className={cn(
-        "relative py-20",
+        "relative overflow-hidden",
         isDark 
-          ? "before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_100%_20%,rgba(192,132,252,0.15),transparent_70%)]"
-          : "before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_100%_20%,rgba(79,70,229,0.1),transparent_70%)]"
+          ? "before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.1),transparent_70%)]"
+          : "before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.1),transparent_70%)]"
       )}
     >
-      {isDark ? (
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-5" />
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-purple-500/10 to-transparent" />
-          <div className="absolute inset-0 backdrop-blur-[1px]" />
-        </div>
-      ) : (
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute inset-0 bg-[url('/grid-light.svg')] opacity-10" />
-          <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-b from-indigo-500/10 to-transparent" />
-          <div className="absolute inset-0 backdrop-blur-[1px]" />
-        </div>
-      )}
+      {/* Cyberpunk Grid Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className={cn(
+          "absolute inset-0 opacity-5",
+          isDark ? "bg-[url('/grid.svg')]" : "bg-[url('/grid-light.svg')]"
+        )} />
+      </div>
 
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="relative space-y-12"
-      >
-        <motion.h2 
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className={cn(
-            "text-3xl md:text-4xl font-bold text-center",
-            isDark 
-              ? "bg-gradient-to-r from-purple-400 to-cyan-400 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(192,132,252,0.3)]"
-              : "bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent drop-shadow-[0_0_10px_rgba(79,70,229,0.2)]"
-          )}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
         >
-          Опыт работы
-        </motion.h2>
+          <h2 className={cn(
+            "text-3xl font-bold mb-4 tracking-wider uppercase",
+            isDark ? "text-cyan-400" : "text-indigo-600"
+          )}>
+            <span className="opacity-50">&lt;</span> Опыт и навыки <span className="opacity-50">/&gt;</span>
+          </h2>
+          <p className={cn(
+            "text-lg max-w-2xl mx-auto",
+            isDark ? "text-cyan-100/70" : "text-zinc-600"
+          )}>
+            Ключевые компетенции и технологии, которые я использую в разработке
+          </p>
+        </motion.div>
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skills.map((skill, index) => (
             <motion.div
-              key={exp.company}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              key={skill.title}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.2 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               className={cn(
-                "relative pl-8 before:absolute before:left-0 before:top-0 before:bottom-0 before:w-0.5",
+                "group relative",
+                "before:absolute before:-inset-0.5 before:blur-sm before:opacity-50",
                 isDark 
-                  ? "before:bg-gradient-to-b before:from-purple-400 before:via-cyan-400 before:to-purple-400" 
-                  : "before:bg-gradient-to-b before:from-indigo-600 before:via-blue-600 before:to-indigo-600"
+                  ? "before:bg-gradient-to-br before:from-cyan-500/30 before:via-transparent before:to-purple-500/30" 
+                  : "before:bg-gradient-to-br before:from-indigo-200/50 before:via-transparent before:to-blue-200/50"
               )}
             >
               <div className={cn(
-                "absolute left-0 top-0 w-2 h-2 -translate-x-[3px] rounded-full",
+                "relative p-6 rounded-lg transition-transform duration-300 will-change-transform hover:-translate-y-2",
                 isDark 
-                  ? "bg-purple-400 shadow-[0_0_10px_rgba(192,132,252,0.5)]" 
-                  : "bg-indigo-600 shadow-[0_0_10px_rgba(79,70,229,0.3)]"
-              )} />
-              
-              <div className="space-y-2">
-                <div className="flex items-center gap-4">
-                  <span className={cn(
-                    "text-sm",
-                    isDark ? "text-purple-300/60" : "text-indigo-600/60"
-                  )}>
-                    {exp.period}
-                  </span>
-                  <span className={cn(
-                    "px-2 py-1 text-sm rounded",
-                    isDark 
-                      ? "bg-purple-500/10 text-purple-300 border border-purple-500/20" 
-                      : "bg-indigo-50 text-indigo-600 border border-indigo-200"
-                  )}>
-                    {exp.position}
-                  </span>
-                </div>
-                
+                  ? "bg-[#0B1120]/90 border border-cyan-500/20" 
+                  : "bg-white/80 border border-slate-200"
+              )}>
+                {/* Decorative Corner Elements */}
+                <div className="absolute -top-px -left-px w-8 h-8 border-t border-l rounded-tl-lg border-current opacity-30" />
+                <div className="absolute -top-px -right-px w-8 h-8 border-t border-r rounded-tr-lg border-current opacity-30" />
+                <div className="absolute -bottom-px -left-px w-8 h-8 border-b border-l rounded-bl-lg border-current opacity-30" />
+                <div className="absolute -bottom-px -right-px w-8 h-8 border-b border-r rounded-br-lg border-current opacity-30" />
+
+                {/* Top Gradient Line */}
+                <div className={cn(
+                  "absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r",
+                  isDark 
+                    ? "from-cyan-500/50 via-transparent to-purple-500/50" 
+                    : "from-indigo-400/30 via-transparent to-blue-400/30"
+                )} />
+
                 <h3 className={cn(
-                  "text-xl font-semibold",
-                  isDark ? "text-purple-100" : "text-indigo-900"
+                  "text-xl font-bold mb-3",
+                  isDark ? "text-cyan-400" : "text-indigo-600"
                 )}>
-                  {exp.company}
+                  {skill.title}
                 </h3>
-                
                 <p className={cn(
-                  "text-base",
-                  isDark ? "text-purple-100/70" : "text-zinc-600"
+                  "mb-4",
+                  isDark ? "text-cyan-100/70" : "text-zinc-600"
                 )}>
-                  {exp.description}
+                  {skill.description}
                 </p>
+                <div className="space-y-2">
+                  {skill.items.map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ x: 4 }}
+                      className={cn(
+                        "flex items-center gap-2 px-3 py-1.5 rounded transition-colors",
+                        isDark 
+                          ? "bg-cyan-500/5 text-cyan-100/70 hover:bg-cyan-500/10" 
+                          : "bg-indigo-50/50 text-zinc-600 hover:bg-indigo-50/80"
+                      )}
+                    >
+                      <span className={cn(
+                        "w-1.5 h-1.5 rounded-full shrink-0",
+                        isDark ? "bg-cyan-400" : "bg-indigo-600"
+                      )} />
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
             </motion.div>
           ))}
         </div>
-      </motion.div>
+      </div>
+
+      {isDark && (
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-cyan-500/5 blur-[100px] animate-pulse" />
+          <div className="absolute top-0 right-1/4 w-1/2 h-1/2 bg-purple-500/5 blur-[100px] animate-pulse delay-700" />
+        </div>
+      )}
     </Section>
   );
 }; 

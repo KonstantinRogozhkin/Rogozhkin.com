@@ -250,14 +250,19 @@ export const Contact: FC = () => {
               <div className="absolute -top-px -right-px w-8 h-8 border-t border-r rounded-tr-lg border-current opacity-30" />
               <div className="absolute -bottom-px -left-px w-8 h-8 border-b border-l rounded-bl-lg border-current opacity-30" />
               <div className="absolute -bottom-px -right-px w-8 h-8 border-b border-r rounded-br-lg border-current opacity-30" />
-
+              <h3 className={cn(
+                    "text-xl font-bold mb-5",
+                    isDark ? "text-cyan-400" : "text-indigo-600"
+                  )}>
+                    Форма обратной связи
+                  </h3>
               <form className="space-y-6 relative">
                 <div className="space-y-4">
                   <label className="block">
                     <span className={cn(
                       "text-sm font-medium",
                       isDark ? "text-cyan-100" : "text-zinc-700"
-                    )}>Имя</span>
+                    )}></span>
                     <input 
                       type="text"
                       className={cn(

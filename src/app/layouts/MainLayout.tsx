@@ -5,6 +5,7 @@ import { MobileMenu } from '@/features/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 import { useTheme } from '@/entities/theme';
+import { Footer } from '@/widgets/Footer';
 
 interface MainLayoutProps {
   children?: ReactNode;
@@ -26,16 +27,16 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
       setIsScrolled(window.scrollY > 20);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const navItems = [
-    { href: '#experience', label: 'Опыт' },
-    { href: '#portfolio', label: 'Портфолио' },
+    { href: '#hero', label: 'Главная' },
     { href: '#services', label: 'Услуги' },
-    { href: '#blog', label: 'Блог' },
-    { href: '#contact', label: 'Контакты' }
+    { href: '#portfolio', label: 'Портфолио' },
+    { href: '#resume', label: 'Резюме' },
+    { href: '#contact', label: 'Контакты' },
   ];
 
   return (
@@ -60,11 +61,9 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
       )}
 
       {/* Header */}
-      <motion.header
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
+      <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 will-change-transform",
           isScrolled 
             ? isDark 
               ? "bg-[#0B1120]/90 backdrop-blur-md border-b border-cyan-500/20 shadow-[0_0_15px_rgba(0,255,255,0.1)]" 
@@ -77,54 +76,40 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
         <div className="container mx-auto px-4 h-16">
           <div className="flex items-center justify-between h-full">
             {/* Logo */}
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+            <a
+              href="#hero"
               className={cn(
-                "text-xl font-bold relative",
+                "text-xl font-bold relative transition-transform hover:scale-105 will-change-transform",
                 isDark 
-                  ? "text-cyan-400 after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:blur-lg after:bg-cyan-500/30 after:opacity-0 hover:after:opacity-100 after:transition-opacity"
+                  ? "text-cyan-400"
                   : "bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent"
               )}
             >
               KR
-            </motion.div>
+            </a>
             
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
               <AnimatePresence>
                 {navItems.map((item) => (
-                  <motion.a
+                  <a
                     key={item.href}
                     href={item.href}
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
                     className={cn(
-                      "relative py-2 transition-all duration-300",
+                      "relative py-2 transition-all duration-300 will-change-transform hover:scale-105",
                       isDark 
                         ? "text-cyan-100 hover:text-cyan-400" 
                         : "text-zinc-600 hover:text-indigo-600"
                     )}
-                    whileHover={isDark ? {
-                      textShadow: "0 0 8px rgba(34,211,238,0.5)",
-                      scale: 1.05
-                    } : { 
-                      scale: 1.05,
-                      color: 'rgb(79, 70, 229)',
-                      transition: { duration: 0.2 }
-                    }}
                   >
                     {item.label}
-                    <motion.span
+                    <span
                       className={cn(
-                        "absolute bottom-0 left-0 w-full h-0.5",
+                        "absolute bottom-0 left-0 w-full h-0.5 scale-x-0 transition-transform duration-300 will-change-transform hover:scale-x-100",
                         isDark ? "bg-cyan-400" : "bg-indigo-600"
                       )}
-                      initial={{ scaleX: 0 }}
-                      whileHover={{ scaleX: 1 }}
-                      transition={{ duration: 0.2 }}
                     />
-                  </motion.a>
+                  </a>
                 ))}
               </AnimatePresence>
             </nav>
@@ -136,7 +121,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
             </div>
           </div>
         </div>
-      </motion.header>
+      </header>
 
       {/* Main content */}
       <main className="pt-16 relative">
@@ -144,117 +129,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
       </main>
 
       {/* Footer */}
-      <footer className={cn(
-        "mt-auto transition-colors duration-300 relative",
-        isDark 
-          ? "bg-[#0B1120]/50 border-t border-cyan-500/10" 
-          : "bg-white/30 border-t border-slate-200/50 backdrop-blur-sm"
-      )}>
-        <div className="container mx-auto px-4 py-12">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Logo and Description */}
-            <div className="space-y-4">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                className={cn(
-                  "text-xl font-bold relative inline-block",
-                  isDark 
-                    ? "text-cyan-400 after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:blur-lg after:bg-cyan-500/30 after:opacity-0 hover:after:opacity-100 after:transition-opacity"
-                    : "bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent"
-                )}
-              >
-                KR
-              </motion.div>
-              <p className={cn(
-                "text-sm max-w-md",
-                isDark ? "text-cyan-100/60" : "text-zinc-600"
-              )}>
-                Разработка интеллектуальных систем и решений в области AI. 
-                Автоматизация бизнес-процессов с использованием машинного обучения.
-              </p>
-            </div>
-
-            {/* Navigation */}
-            <div className="space-y-4">
-              <h3 className={cn(
-                "font-semibold",
-                isDark ? "text-cyan-400" : "text-indigo-600"
-              )}>
-                Навигация
-              </h3>
-              <nav className="grid grid-cols-2 gap-2">
-                {navItems.map((item) => (
-                  <motion.a
-                    key={item.href}
-                    href={item.href}
-                    whileHover={{ x: 4 }}
-                    className={cn(
-                      "text-sm transition-colors",
-                      isDark 
-                        ? "text-cyan-100/60 hover:text-cyan-400" 
-                        : "text-zinc-600 hover:text-indigo-600"
-                    )}
-                  >
-                    {item.label}
-                  </motion.a>
-                ))}
-              </nav>
-            </div>
-
-            {/* Contact and Social */}
-            <div className="space-y-4">
-              <h3 className={cn(
-                "font-semibold",
-                isDark ? "text-cyan-400" : "text-indigo-600"
-              )}>
-                Контакты
-              </h3>
-              <div className="space-y-2">
-                <a 
-                  href="mailto:k.rogozhkin@gmail.com"
-                  className={cn(
-                    "text-sm block transition-colors",
-                    isDark 
-                      ? "text-cyan-100/60 hover:text-cyan-400" 
-                      : "text-zinc-600 hover:text-indigo-600"
-                  )}
-                >
-                  k.rogozhkin@gmail.com
-                </a>
-                <div className="flex gap-4">
-                  {socialLinks.map((link) => (
-                    <motion.a
-                      key={link.href}
-                      href={link.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.1 }}
-                      className={cn(
-                        "text-sm transition-colors",
-                        isDark 
-                          ? "text-cyan-100/60 hover:text-cyan-400" 
-                          : "text-zinc-600 hover:text-indigo-600"
-                      )}
-                    >
-                      {link.label}
-                    </motion.a>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Copyright */}
-          <div className={cn(
-            "text-center text-sm mt-8 pt-8",
-            isDark 
-              ? "text-cyan-400/60 border-t border-cyan-500/10" 
-              : "text-zinc-500 border-t border-slate-200/50"
-          )}>
-            © {new Date().getFullYear()} Konstantin Rogozhkin. All rights reserved.
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }; 
