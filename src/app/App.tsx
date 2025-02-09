@@ -2,7 +2,8 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './config/router';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+import { useTheme } from '@/entities/theme';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -33,19 +34,39 @@ function ErrorFallback() {
   );
 }
 
+function AppContent() {
+  const { theme } = useTheme();
+  
+  // Синхронизируем тему при монтировании компонента
+  useEffect(() => {
+    // Добавляем класс для Tailwind
+    if (theme === 'dark') {
+      document.documentElement.classList.add('dark');
+    } else {
+      document.documentElement.classList.remove('dark');
+    }
+    // Устанавливаем data-theme атрибут
+    document.documentElement.dataset.theme = theme;
+  }, [theme]);
+
+  return (
+    <Suspense
+      fallback={
+        <div className="min-h-screen flex items-center justify-center bg-default">
+          <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin" />
+        </div>
+      }
+    >
+      <RouterProvider router={router} />
+    </Suspense>
+  );
+}
+
 function App() {
   return (
     <ErrorBoundary FallbackComponent={ErrorFallback}>
       <QueryClientProvider client={queryClient}>
-        <Suspense
-          fallback={
-            <div className="min-h-screen flex items-center justify-center bg-default">
-              <div className="w-16 h-16 border-4 border-primary border-t-transparent rounded-full animate-spin" />
-            </div>
-          }
-        >
-          <RouterProvider router={router} />
-        </Suspense>
+        <AppContent />
       </QueryClientProvider>
     </ErrorBoundary>
   );

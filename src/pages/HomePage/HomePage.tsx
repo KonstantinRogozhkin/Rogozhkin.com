@@ -1,21 +1,17 @@
 import { FC } from 'react';
 import { Hero } from '@/widgets/Hero';
-import { Experience } from '@/widgets/Experience';
-import { Services } from '@/widgets/Services';
-import { Portfolio } from '@/widgets/Portfolio';
 import { Resume } from '@/widgets/Resume';
+import { Portfolio } from '@/widgets/Portfolio';
 import { Contact } from '@/widgets/Contact';
 
 const HomePage: FC = () => {
   return (
-    <>
+    <main>
       <Hero />
       <Resume />
-      <Experience />
       <Portfolio />
-      <Services />
       <Contact />
-    </>
+    </main>
   );
 };
 

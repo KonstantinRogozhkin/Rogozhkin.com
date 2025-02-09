@@ -1,6 +1,7 @@
 import { FC, ReactNode } from 'react';
 import { Outlet } from 'react-router-dom';
 import { ThemeToggle } from '@/features/theme/ThemeToggle';
+import { MobileMenu } from '@/features/navigation';
 
 interface MainLayoutProps {
   children?: ReactNode;
@@ -26,14 +27,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 
           <div className="flex items-center gap-4">
             <ThemeToggle />
-            
-            {/* Mobile menu button - will be replaced with component */}
-            <button className="md:hidden p-2">
-              <span className="sr-only">Открыть меню</span>
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
-            </button>
+            <MobileMenu />
           </div>
         </div>
       </header>

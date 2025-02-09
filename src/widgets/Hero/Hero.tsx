@@ -3,46 +3,41 @@ import { Section } from '@/shared/ui/Section/Section';
 
 export const Hero: FC = () => {
   return (
-    <Section 
-      className="min-h-[calc(100vh-4rem)] flex items-center relative overflow-hidden bg-gradient-to-b from-default to-card"
-      fullWidth
-    >
-      <div className="container mx-auto relative z-10">
-        <div className="grid lg:grid-cols-2 gap-8 items-center">
-          {/* Content */}
-          <div className="space-y-6 text-center lg:text-left">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Konstantin Rogozhkin
-              <span className="block text-primary">AI & Automation Expert</span>
-            </h1>
-            
-            <p className="text-xl md:text-2xl text-default-foreground/80">
-              Создаю интеллектуальные системы автоматизации продаж и коммуникаций с клиентами
-            </p>
-
-            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <button className="px-8 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors">
-                Связаться
-              </button>
-              <button className="px-8 py-3 border border-primary text-primary rounded-lg hover:bg-primary/10 transition-colors">
-                Портфолио
-              </button>
-            </div>
-          </div>
-
-          {/* Image/Animation placeholder */}
-          <div className="relative aspect-square lg:aspect-auto">
-            <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-secondary/20 rounded-full animate-pulse" />
-            <div className="absolute inset-4 bg-gradient-to-bl from-primary/30 to-secondary/30 rounded-full animate-pulse [animation-delay:1s]" />
-            <div className="absolute inset-8 bg-gradient-to-tl from-primary/40 to-secondary/40 rounded-full animate-pulse [animation-delay:2s]" />
-          </div>
+    <Section id="hero" className="min-h-[calc(100vh-4rem)] flex items-center">
+      <div className="space-y-8">
+        <div className="space-y-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+            Константин Рогожкин
+          </h1>
+          <p className="text-xl md:text-2xl text-default-foreground/60">
+            Специалист в области искусственного интеллекта и больших данных
+          </p>
         </div>
-      </div>
 
-      {/* Background decoration */}
-      <div className="absolute inset-0 opacity-30">
-        <div className="absolute top-20 left-0 w-72 h-72 bg-primary/30 rounded-full filter blur-3xl" />
-        <div className="absolute bottom-20 right-0 w-72 h-72 bg-secondary/30 rounded-full filter blur-3xl" />
+        <div className="text-lg space-y-4 max-w-3xl">
+          <p>
+            Более 10 лет специализируюсь на разработке решений в области ИИ и Big Data. 
+            Создал чат-бот для AISales с использованием NLP и машинного обучения для автоматизации продаж и поддержки клиентов.
+          </p>
+          <p>
+            Разработал систему прогнозирования спроса с использованием анализа временных рядов для оптимизации складских запасов интернет-магазина.
+          </p>
+        </div>
+
+        <div className="flex flex-wrap gap-4">
+          <a 
+            href="#contact" 
+            className="px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors"
+          >
+            Связаться
+          </a>
+          <a 
+            href="#portfolio" 
+            className="px-6 py-3 border border-default-foreground/20 rounded-lg hover:bg-default transition-colors"
+          >
+            Портфолио
+          </a>
+        </div>
       </div>
     </Section>
   );
