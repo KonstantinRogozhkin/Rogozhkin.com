@@ -2,9 +2,11 @@ import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { cn } from '@/shared/lib/utils';
 import { useTheme } from '@/entities/theme';
+import { useLocale } from '@/entities/locale';
 
 export const Thanks: FC = () => {
   const { theme } = useTheme();
+  const { t } = useLocale();
   const isDark = theme === 'dark';
 
   const technologies = [
@@ -63,7 +65,7 @@ export const Thanks: FC = () => {
               "text-3xl font-bold mb-6 text-center tracking-wider uppercase",
               isDark ? "text-cyan-400" : "text-indigo-600"
             )}>
-              <span className="opacity-50">&lt;</span> Финальный Блок <span className="opacity-50">/&gt;</span>
+              <span className="opacity-50">&lt;</span> {t('thanks.title')} <span className="opacity-50">/&gt;</span>
             </h2>
             
             <div className="space-y-8">
@@ -77,7 +79,7 @@ export const Thanks: FC = () => {
                   "text-lg text-center font-medium",
                   isDark ? "text-cyan-100" : "text-zinc-700"
                 )}>
-                  Технологический стек проекта:
+                  {t('thanks.stack_title')}
                 </p>
 
                 <div className="flex flex-wrap justify-center gap-3 mt-4">
@@ -117,14 +119,14 @@ export const Thanks: FC = () => {
                   "text-center font-medium mb-4",
                   isDark ? "text-cyan-100" : "text-zinc-700"
                 )}>
-                  <span className={isDark ? "text-cyan-400" : "text-indigo-600"}>{"<AI />"}</span> Этот проект - демонстрация силы современных технологий. Весь дизайн и структура были созданы за 1 час 40 минут с помощью искусственного интеллекта.
+                  <span className={isDark ? "text-cyan-400" : "text-indigo-600"}>{"<AI />"}</span> {t('thanks.ai_description')}
                 </p>
                 
                 <p className={cn(
                   "text-center",
                   isDark ? "text-cyan-100/80" : "text-zinc-600"
                 )}>
-                  Исходный код доступен на{' '}
+                  {t('thanks.github_link')}{' '}
                   <motion.a 
                     href="https://github.com/KonstantinRogozhkin/Rogozhkin.com" 
                     target="_blank" 
@@ -138,7 +140,7 @@ export const Thanks: FC = () => {
                     GitHub
                     <span className="text-xs opacity-50">↗</span>
                   </motion.a>
-                  . Интересно узнать больше? Напишите мне в{' '}
+                  . {t('thanks.telegram_text')}{' '}
                   <motion.a 
                     href="https://t.me/konstik" 
                     target="_blank" 
@@ -149,10 +151,10 @@ export const Thanks: FC = () => {
                       isDark ? "text-cyan-400 hover:text-cyan-300" : "text-indigo-600 hover:text-indigo-500"
                     )}
                   >
-                    Telegram
+                    {t('thanks.telegram_link_text')}
                     <span className="text-xs opacity-50">↗</span>
                   </motion.a>
-                  {' '}для получения ссылки на видео с процессом создания.
+                  {' '}{t('thanks.video_text')}
                 </p>
               </div>
             </div>

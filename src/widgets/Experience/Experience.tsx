@@ -2,43 +2,21 @@ import { FC } from 'react';
 import { Section } from '@/shared/ui/Section/Section';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/entities/theme';
+import { useLocale } from '@/entities/locale';
 import { cn } from '@/shared/lib/utils';
 
 export const Experience: FC = () => {
   const { theme } = useTheme();
+  const { t } = useLocale();
   const isDark = theme === 'dark';
 
   const skills = [
-    {
-      title: 'Предпринимательство',
-      description: 'Успешный опыт создания и развития технологических стартапов, от идеи до прибыльного бизнеса.',
-      items: ['Поиск ниш', 'Монетизация продукта',  'Создание dev команды','Масштабирование']
-    },
-    {
-      title: 'Product Growth Hacking',
-      description: 'Глубокая экспертиза в создании продуктов: от исследования рынка и тестирования гипотез до запуска и роста.',
-      items: ['Product Discovery', 'Customer Development', 'MVP', 'Product Market Fit', 'Growth Hacking']
-    },
-    {
-      title: 'Искусственный Интеллект',
-      description: 'Глубокая экспертиза в разработке и внедрении AI-решений, включая GPT, ML и NLP технологии.',
-      items: ['GPT', 'ML', 'NLP', 'Neural Networks', 'Computer Vision']
-    },
-    {
-      title: 'IT / AI Разработка',
-      description: 'Создание высоконагруженных систем и микросервисов с использованием современного стека технологий.',
-      items: ['Python', 'TypeScript', 'React', 'Node.js', 'Микросервисы']
-    },
-    {
-      title: 'Исследования',
-      description: 'Проведение глубоких исследований рынка, анализ конкурентов и тестирование продуктовых гипотез.',
-      items: ['Market Research', 'A/B Testing', 'User Research', 'Data Analysis', 'Конкурентный анализ']
-    },
-    {
-      title: 'Аналитика',
-      description: 'Анализ данных, построение прогнозных моделей и оптимизация бизнес-процессов.',
-      items: ['Big Data', 'Data Science', 'BI', 'Analytics', 'Прогнозирование']
-    }
+    { key: 'entrepreneurship' },
+    { key: 'product_growth' },
+    { key: 'ai' },
+    { key: 'development' },
+    { key: 'research' },
+    { key: 'analytics' }
   ];
 
   return (
@@ -71,20 +49,20 @@ export const Experience: FC = () => {
             "text-3xl font-bold mb-4 tracking-wider uppercase",
             isDark ? "text-cyan-400" : "text-indigo-600"
           )}>
-            <span className="opacity-50">&lt;</span> Опыт и навыки <span className="opacity-50">/&gt;</span>
+            <span className="opacity-50">&lt;</span> {t('experience.title')} <span className="opacity-50">/&gt;</span>
           </h2>
           <p className={cn(
             "text-lg max-w-2xl mx-auto",
             isDark ? "text-cyan-100/70" : "text-zinc-600"
           )}>
-            Ключевые компетенции и технологии, которые я использую в разработке
+            {t('experience.subtitle')}
           </p>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
             <motion.div
-              key={skill.title}
+              key={skill.key}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -121,16 +99,16 @@ export const Experience: FC = () => {
                   "text-xl font-bold mb-3",
                   isDark ? "text-cyan-400" : "text-indigo-600"
                 )}>
-                  {skill.title}
+                  {t(`experience.skills.${skill.key}.title`)}
                 </h3>
                 <p className={cn(
                   "mb-4",
                   isDark ? "text-cyan-100/70" : "text-zinc-600"
                 )}>
-                  {skill.description}
+                  {t(`experience.skills.${skill.key}.description`)}
                 </p>
                 <div className="space-y-2">
-                  {skill.items.map((item, i) => (
+                  {(t(`experience.skills.${skill.key}.items`, { returnObjects: true }) as string[]).map((item, i) => (
                     <motion.div
                       key={i}
                       whileHover={{ x: 4 }}

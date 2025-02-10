@@ -1,0 +1,222 @@
+{
+  "language": {
+    "en": "English",
+    "ru": "Russian"
+  },
+  "menu": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "experience": "Experience",
+    "contact": "Contact",
+    "services": "Services",
+    "blog": "Blog",
+    "social": "Social Networks",
+    "resume": "Resume",
+    "toggle": {
+      "open": "Open menu",
+      "close": "Close menu"
+    }
+  },
+  "brand": "ROGOZHKIN",
+  "footer": {
+    "description": "Development of intelligent systems and AI solutions. Business process automation using machine learning.",
+    "navigation": "Navigation",
+    "contacts": "Contacts",
+    "copyright": "© {{year}} Konstantin Rogozhkin. All rights reserved."
+  },
+  "hero": {
+    "name": "Konstantin Rogozhkin",
+    "position": "CTO, Entrepreneur, Product Developer",
+    "description": {
+      "experience": "15+ years helping businesses grow through automation and AI. Creator of more than 3 successful IT businesses.",
+      "goal": "My personal goal is to earn $1M per year using IT and AI technologies.",
+      "mission": "My mission is to free people from routine tasks and enable them to focus on creativity, strategy, and truly important work."
+    },
+    "buttons": {
+      "contact": "Contact",
+      "portfolio": "Portfolio"
+    }
+  },
+  "thanks": {
+    "title": "Final Block",
+    "stack_title": "Project Technology Stack:",
+    "ai_description": "This project is a demonstration of modern technology power. The entire design and structure were created in 1 hour 40 minutes using artificial intelligence.",
+    "github_link": "Source code is available on",
+    "telegram_text": "Want to learn more? Write to me in",
+    "telegram_link_text": "Telegram",
+    "video_text": "to get a link to the video of the creation process."
+  },
+  "resume": {
+    "subtitle": "My professional journey in technology and entrepreneurship",
+    "timeline": {
+      "neira": {
+        "period": "January 2024 - Present",
+        "position": "coFounder / CTO",
+        "description": "Development of AI agents capable of automating any business processes: advertising, sales, HR, and more."
+      },
+      "aisales": {
+        "period": "August 2017 - February 2022",
+        "position": "coFounder / CTO",
+        "description": "Development of chatbots using NLP and machine learning for sales automation and customer support. Creation of demand forecasting system using time series analysis."
+      },
+      "callprofit": {
+        "period": "January 2015 - 2017",
+        "position": "coFounder / CTO",
+        "achievements": {
+          "website": "Creation and implementation of website",
+          "crm": "Implementation of Bitrix24 CRM",
+          "automation": "Business process automation",
+          "integration": "Integration of call center CRM with external systems",
+          "oktell": "Development of modules for Oktell system",
+          "reports": "Report visualization (Google DataStudio)"
+        }
+      }
+    },
+    "education": {
+      "period": "2007 - 2012",
+      "institution": "Vyatka State University of Humanities",
+      "degree": "Information Systems Economist",
+      "specialization": "Applied Informatics in Economics"
+    }
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with me to discuss your project or collaboration",
+    "info": {
+      "title": "Contact Information",
+      "email": {
+        "label": "Email",
+        "value": "konstantin@rogozhkin.com"
+      },
+      "location": {
+        "label": "Location",
+        "value": "Mar del Plata, Argentina"
+      }
+    },
+    "social": {
+      "title": "Social Networks",
+      "telegram": "Telegram",
+      "twitter": "X (Twitter)",
+      "github": "GitHub",
+      "linkedin": "LinkedIn"
+    },
+    "form": {
+      "title": "Contact Form",
+      "name": {
+        "label": "Name",
+        "placeholder": "Your name"
+      },
+      "email": {
+        "label": "Email",
+        "placeholder": "your@email.com"
+      },
+      "message": {
+        "label": "Message",
+        "placeholder": "Your message..."
+      },
+      "submit": "Send Message"
+    }
+  },
+  "services": {
+    "title": "How I Can Help You",
+    "subtitle": "Helping businesses automate processes and increase sales using artificial intelligence",
+    "ai_development": {
+      "title": "AI Development",
+      "description": "Development of intelligent systems using the latest advances in AI/ML",
+      "features": [
+        "GPT-based Chatbots",
+        "Automation Systems",
+        "ML Models for Business"
+      ]
+    },
+    "consulting": {
+      "title": "Consulting",
+      "description": "Assistance in selecting and implementing optimal solutions for your business",
+      "features": [
+        "Process Audit",
+        "Automation Strategy",
+        "Cost Optimization"
+      ]
+    },
+    "integration": {
+      "title": "Integration",
+      "description": "Integration of AI solutions with existing systems and processes",
+      "features": [
+        "CRM Systems",
+        "Messengers",
+        "API Integrations"
+      ]
+    }
+  },
+  "experience": {
+    "title": "Experience & Skills",
+    "subtitle": "Key competencies and technologies I use in development",
+    "skills": {
+      "entrepreneurship": {
+        "title": "Entrepreneurship",
+        "description": "Successful experience in creating and developing technology startups, from idea to profitable business.",
+        "items": [
+          "Niche Search",
+          "Product Monetization",
+          "Dev Team Building",
+          "Scaling"
+        ]
+      },
+      "product_growth": {
+        "title": "Product Growth Hacking",
+        "description": "Deep expertise in product creation: from market research and hypothesis testing to launch and growth.",
+        "items": [
+          "Product Discovery",
+          "Customer Development",
+          "MVP",
+          "Product Market Fit",
+          "Growth Hacking"
+        ]
+      },
+      "ai": {
+        "title": "Artificial Intelligence",
+        "description": "Deep expertise in developing and implementing AI solutions, including GPT, ML, and NLP technologies.",
+        "items": [
+          "GPT",
+          "ML",
+          "NLP",
+          "Neural Networks",
+          "Computer Vision"
+        ]
+      },
+      "development": {
+        "title": "IT / AI Development",
+        "description": "Building high-load systems and microservices using modern technology stack.",
+        "items": [
+          "Python",
+          "TypeScript",
+          "React",
+          "Node.js",
+          "Microservices"
+        ]
+      },
+      "research": {
+        "title": "Research",
+        "description": "Conducting deep market research, competitor analysis, and product hypothesis testing.",
+        "items": [
+          "Market Research",
+          "A/B Testing",
+          "User Research",
+          "Data Analysis",
+          "Competitive Analysis"
+        ]
+      },
+      "analytics": {
+        "title": "Analytics",
+        "description": "Data analysis, predictive modeling, and business process optimization.",
+        "items": [
+          "Big Data",
+          "Data Science",
+          "BI",
+          "Analytics",
+          "Forecasting"
+        ]
+      }
+    }
+  }
+} 

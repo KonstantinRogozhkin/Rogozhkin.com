@@ -2,38 +2,39 @@ import { FC } from 'react';
 import { Section } from '@/shared/ui/Section/Section';
 import { motion } from 'framer-motion';
 import { useTheme } from '@/entities/theme';
+import { useLocale } from '@/entities/locale';
 import { cn } from '@/shared/lib/utils';
 
-const timeline = [
+const getTimelineData = (t: (key: string) => string) => [
   {
-    period: 'Январь 2024 - Настоящее время',
+    period: t('resume.timeline.neira.period'),
     company: 'NEiRA',
-    position: 'coFounder / CTO',
-    description: 'Разработка AI-агентов, способных автоматизировать любые бизнес-процессы: реклама, продажи, HR и многое другое.',
+    position: t('resume.timeline.neira.position'),
+    description: t('resume.timeline.neira.description'),
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
     )
   },
   {
-    period: 'Август 2017 - Февраль 2022',
+    period: t('resume.timeline.aisales.period'),
     company: 'AISales',
-    position: 'coFounder / CTO',
-    description: 'Разработка чат-ботов с использованием NLP и машинного обучения для автоматизации продаж и поддержки клиентов. Создание системы прогнозирования спроса с использованием анализа временных рядов.',
+    position: t('resume.timeline.aisales.position'),
+    description: t('resume.timeline.aisales.description'),
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     )
   },
   {
-    period: 'Январь 2015 - 2017',
+    period: t('resume.timeline.callprofit.period'),
     company: 'CallProfit',
-    position: 'coFounder / CTO',
+    position: t('resume.timeline.callprofit.position'),
     achievements: [
-      'Создание и внедрение веб-сайта',
-      'Внедрение Bitrix24 CRM',
-      'Автоматизация бизнес-процессов',
-      'Интеграция CRM колл-центра с внешними системами',
-      'Разработка модулей для системы Oktell',
-      'Визуализация отчетов (Google DataStudio)'
+      t('resume.timeline.callprofit.achievements.website'),
+      t('resume.timeline.callprofit.achievements.crm'),
+      t('resume.timeline.callprofit.achievements.automation'),
+      t('resume.timeline.callprofit.achievements.integration'),
+      t('resume.timeline.callprofit.achievements.oktell'),
+      t('resume.timeline.callprofit.achievements.reports')
     ],
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
@@ -41,19 +42,23 @@ const timeline = [
   }
 ];
 
-const education = {
-  period: '2007 - 2012',
-  institution: 'Вятский Государственный Гуманитарный Университет',
-  degree: 'Информатик-экономист',
-  specialization: 'Специальность «Прикладная информатика (в экономике)»',
+const getEducationData = (t: (key: string) => string) => ({
+  period: t('resume.education.period'),
+  institution: t('resume.education.institution'),
+  degree: t('resume.education.degree'),
+  specialization: t('resume.education.specialization'),
   icon: (
     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 14l9-5-9-5-9 5 9 5z M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z M12 14l-6.16-3.422a12.083 12.083 0 00-.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 016.824-2.998 12.078 12.078 0 00-.665-6.479L12 14z" />
   )
-};
+});
 
 export const Resume: FC = () => {
   const { theme } = useTheme();
+  const { t } = useLocale();
   const isDark = theme === 'dark';
+
+  const timeline = getTimelineData(t);
+  const education = getEducationData(t);
 
   return (
     <Section id="resume" className="relative overflow-hidden">
@@ -78,13 +83,13 @@ export const Resume: FC = () => {
             "text-3xl md:text-4xl font-bold tracking-wider uppercase",
             isDark ? "text-cyan-400" : "text-indigo-600"
           )}>
-            <span className="opacity-50">&lt;</span> Резюме <span className="opacity-50">/&gt;</span>
+            <span className="opacity-50">&lt;</span> {t('menu.experience')} <span className="opacity-50">/&gt;</span>
           </h2>
           <p className={cn(
             "text-lg max-w-3xl mx-auto",
             isDark ? "text-cyan-100/60" : "text-zinc-600"
           )}>
-            Мой профессиональный путь в сфере технологий и предпринимательства
+            {t('resume.subtitle')}
           </p>
         </div>
 

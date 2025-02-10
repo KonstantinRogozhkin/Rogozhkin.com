@@ -54,9 +54,10 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['Inter var', 'Inter', 'system-ui', 'sans-serif'],
-        heading: ['Manrope', 'system-ui', 'sans-serif'],
+        sans: ['Golos Text', 'system-ui', 'sans-serif'],
+        heading: ['Russo One', 'Chakra Petch', 'Golos Text', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
+        cyber: ['Furore', 'Golos Text', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         '2xs': ['0.75rem', { lineHeight: '1.25rem' }],
@@ -104,12 +105,17 @@ export default {
           '0%': { opacity: '0', transform: 'translateY(10px)' },
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
+        'shimmer': {
+          '0%': { backgroundPosition: '200% 0' },
+          '100%': { backgroundPosition: '-200% 0' },
+        },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'fade-in': 'fade-in 0.5s ease-out',
         'fade-up': 'fade-up 0.5s ease-out',
+        'shimmer': 'shimmer 8s linear infinite',
       },
     },
   },

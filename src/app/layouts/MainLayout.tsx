@@ -6,6 +6,7 @@ import { AnimatePresence } from 'framer-motion';
 import { cn, getThemeStyles } from '@/shared/lib/utils';
 import { useTheme } from '@/entities/theme';
 import { Footer } from '@/widgets/Footer';
+import { DesktopHeader } from '@/widgets/Header/ui/DesktopHeader';
 import { BaseLayout, Container } from '@/shared/ui/layouts';
 
 interface MainLayoutProps {
@@ -31,7 +32,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
     { href: '#hero', label: 'Главная' },
     { href: '#services', label: 'Услуги' },
     { href: '#portfolio', label: 'Портфолио' },
-    { href: '#resume', label: 'Резюме' },
+    { href: '#resume', label: 'Опыт' },
     { href: '#contact', label: 'Контакты' },
   ];
 
@@ -102,7 +103,7 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
   return (
     <BaseLayout
       className={themeStyles.layout}
-      header={renderHeader()}
+      header={<DesktopHeader isScrolled={isScrolled} />}
       footer={<Footer />}
     >
       {/* Background Effects */}

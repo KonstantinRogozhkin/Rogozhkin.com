@@ -1,34 +1,35 @@
 import { FC } from 'react';
 import { cn } from '@/shared/lib/utils';
 import { useTheme } from '@/entities/theme';
+import { useLocale } from '@/entities/locale';
 import { Container } from '@/shared/ui/layouts';
 
 const navItems = [
-  { href: '#experience', label: 'Опыт' },
-  { href: '#portfolio', label: 'Портфолио' },
-  { href: '#services', label: 'Услуги' },
-  { href: '#blog', label: 'Блог' },
-  { href: '#contact', label: 'Контакты' }
+  { href: '#experience', label: 'menu.experience' },
+  { href: '#portfolio', label: 'menu.portfolio' },
+  { href: '#services', label: 'menu.services' },
+  { href: '#blog', label: 'menu.blog' },
+  { href: '#contact', label: 'menu.contact' }
 ];
 
 const socialLinks = [
   { 
     href: 'https://github.com/KonstantinRogozhkin', 
-    label: 'GitHub',
+    label: 'contact.social.github',
     icon: (
       <path fillRule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" clipRule="evenodd" />
     )
   },
   { 
     href: 'https://linkedin.com/in/KonstantinRogozhkin', 
-    label: 'LinkedIn',
+    label: 'contact.social.linkedin',
     icon: (
       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
     )
   },
   { 
     href: 'https://t.me/konstik', 
-    label: 'Telegram',
+    label: 'contact.social.telegram',
     icon: (
       <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8c-.15 1.58-.8 5.42-1.13 7.19-.14.75-.42 1-.68 1.03-.58.05-1.02-.38-1.58-.75-.88-.58-1.38-.94-2.23-1.5-.99-.65-.35-1.01.22-1.59.15-.15 2.71-2.48 2.76-2.69a.2.2 0 00-.05-.18c-.06-.05-.14-.03-.21-.02-.09.02-1.49.95-4.22 2.79-.4.27-.76.41-1.08.4-.36-.01-1.04-.2-1.55-.37-.63-.2-1.12-.31-1.08-.66.02-.18.27-.36.74-.55 2.92-1.27 4.86-2.11 5.83-2.51 2.78-1.16 3.35-1.36 3.73-1.36.08 0 .27.02.39.12.1.08.13.19.14.27-.01.06.01.24 0 .38z"/>
     )
@@ -37,6 +38,7 @@ const socialLinks = [
 
 export const Footer: FC = () => {
   const { theme } = useTheme();
+  const { t } = useLocale();
   const isDark = theme === 'dark';
 
   return (
@@ -74,15 +76,14 @@ export const Footer: FC = () => {
                   : "bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent"
               )}
             >
-              KR
+              {t('brand')}
             </div>
             <div className="space-y-4">
               <p className={cn(
                 "text-sm max-w-md",
                 isDark ? "text-cyan-100/60" : "text-zinc-600"
               )}>
-                Разработка интеллектуальных систем и решений в области AI. 
-                Автоматизация бизнес-процессов с использованием машинного обучения.
+                {t('footer.description')}
               </p>
               <div className="flex gap-4">
                 {socialLinks.map((link) => (
@@ -115,7 +116,7 @@ export const Footer: FC = () => {
               "text-lg font-semibold",
               isDark ? "text-cyan-400" : "text-indigo-600"
             )}>
-              Навигация
+              {t('footer.navigation')}
             </h3>
             <nav className="grid grid-cols-2 gap-4">
               {navItems.map((item) => (
@@ -133,7 +134,7 @@ export const Footer: FC = () => {
                     "w-1 h-1 rounded-full",
                     isDark ? "bg-cyan-400" : "bg-indigo-600"
                   )} />
-                  {item.label}
+                  {t(item.label)}
                 </a>
               ))}
             </nav>
@@ -145,7 +146,7 @@ export const Footer: FC = () => {
               "text-lg font-semibold",
               isDark ? "text-cyan-400" : "text-indigo-600"
             )}>
-              Контакты
+              {t('footer.contacts')}
             </h3>
             <div className="space-y-4">
               <a 
@@ -167,7 +168,7 @@ export const Footer: FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
-                konstantin@rogozhkin.com
+                {t('contact.info.email.value')}
               </a>
               <a 
                 href="https://www.google.com/maps/place/Mar+del+Plata,+Buenos+Aires,+Argentina"
@@ -191,7 +192,7 @@ export const Footer: FC = () => {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                   </svg>
                 </div>
-                Mar del Plata, Argentina
+                {t('contact.info.location.value')}
               </a>
             </div>
           </div>
@@ -204,7 +205,7 @@ export const Footer: FC = () => {
             ? "text-cyan-400/60 border-t border-cyan-500/10" 
             : "text-zinc-500 border-t border-slate-200/50"
         )}>
-          © {new Date().getFullYear()} Konstantin Rogozhkin. All rights reserved.
+          {t('footer.copyright', { year: new Date().getFullYear() })}
         </div>
       </Container>
     </footer>
