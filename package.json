@@ -24,6 +24,7 @@
     "react-error-boundary": "^5.0.0",
     "react-hook-form": "^7.50.1",
     "react-i18next": "^15.4.0",
+    "react-icons": "^5.4.0",
     "react-router-dom": "7.1.1",
     "tailwind-merge": "^3.0.1",
     "zod": "^3.22.4",

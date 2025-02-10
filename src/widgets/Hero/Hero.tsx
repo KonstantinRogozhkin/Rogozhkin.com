@@ -10,9 +10,9 @@ export const Hero: FC = () => {
   const { t } = useLocale();
   const isDark = theme === 'dark';
   const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
-  const scale = useTransform(scrollY, [0, 300], [1, 0.8]);
-  const y = useTransform(scrollY, [0, 300], [0, 100]);
+  const opacity = useTransform(scrollY, [0, 900], [1, 0]);
+  const scale = useTransform(scrollY, [0, 900], [1, 0.8]);
+  const y = useTransform(scrollY, [0, 900], [0, 100]);
 
   return (
     <Section 

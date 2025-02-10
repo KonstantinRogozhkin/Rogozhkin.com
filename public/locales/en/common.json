@@ -218,5 +218,24 @@
         ]
       }
     }
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "description": "Selected projects showcasing my experience in AI development and business process automation",
+    "readMore": "Learn More",
+    "projects": {
+      "aida": {
+        "title": "AIDA Finance Bot",
+        "description": "Financial chatbot with over 1M users. Uses NLP and ML for sales automation and support."
+      },
+      "assistant": {
+        "title": "AI Code Assistant",
+        "description": "Intelligent assistant for developers. Analyzes code, suggests improvements, and helps with debugging."
+      },
+      "analytics": {
+        "title": "Smart Analytics Platform",
+        "description": "ML-powered data analytics platform. Predicts trends and anomalies in real-time."
+      }
+    }
   }
 } 

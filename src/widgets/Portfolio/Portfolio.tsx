@@ -1,28 +1,30 @@
 import { FC } from 'react';
 import { Section } from '@/shared/ui/layouts';
 import { useTheme } from '@/entities/theme';
+import { useLocale } from '@/entities/locale';
 import { cn } from '@/shared/lib/utils';
 
 export const Portfolio: FC = () => {
   const { theme } = useTheme();
+  const { t } = useLocale();
   const isDark = theme === 'dark';
 
   const projects = [
     {
-      title: 'AIDA Finance Bot',
-      description: 'Финансовый чат-бот с аудиторией более 1 млн пользователей. Использует NLP и ML для автоматизации продаж и поддержки.',
+      title: t('portfolio.projects.aida.title'),
+      description: t('portfolio.projects.aida.description'),
       tags: ['AI', 'NLP', 'Python', 'FastAPI', 'PostgreSQL'],
       link: 'https://t.me/aida_finance_bot'
     },
     {
-      title: 'AI Code Assistant',
-      description: 'Интеллектуальный помощник для разработчиков. Анализирует код, предлагает улучшения и помогает в отладке.',
+      title: t('portfolio.projects.assistant.title'),
+      description: t('portfolio.projects.assistant.description'),
       tags: ['AI', 'TypeScript', 'Node.js', 'React', 'OpenAI'],
       link: '#'
     },
     {
-      title: 'Smart Analytics Platform',
-      description: 'Платформа для анализа данных с использованием ML. Предсказывает тренды и аномалии в реальном времени.',
+      title: t('portfolio.projects.analytics.title'),
+      description: t('portfolio.projects.analytics.description'),
       tags: ['Python', 'TensorFlow', 'React', 'AWS'],
       link: '#'
     }
@@ -43,13 +45,13 @@ export const Portfolio: FC = () => {
           "text-3xl font-bold mb-4",
           isDark ? "text-cyan-400" : "text-indigo-600"
         )}>
-          Портфолио
+          {t('portfolio.title')}
         </h2>
         <p className={cn(
           "text-lg max-w-2xl mx-auto",
           isDark ? "text-cyan-100/70" : "text-zinc-600"
         )}>
-          Избранные проекты, демонстрирующие мой опыт в разработке AI-решений и автоматизации бизнес-процессов
+          {t('portfolio.description')}
         </p>
       </div>
 
@@ -104,7 +106,7 @@ export const Portfolio: FC = () => {
                   : "text-indigo-600 hover:text-indigo-500"
               )}
             >
-              Подробнее →
+              {t('portfolio.readMore')} →
             </a>
           </div>
         ))}

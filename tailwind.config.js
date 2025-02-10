@@ -109,6 +109,10 @@ export default {
           '0%': { backgroundPosition: '200% 0' },
           '100%': { backgroundPosition: '-200% 0' },
         },
+        'gradient': {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' }
+        }
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
@@ -116,6 +120,7 @@ export default {
         'fade-in': 'fade-in 0.5s ease-out',
         'fade-up': 'fade-up 0.5s ease-out',
         'shimmer': 'shimmer 8s linear infinite',
+        'gradient': 'gradient 8s ease-in-out infinite'
       },
     },
   },

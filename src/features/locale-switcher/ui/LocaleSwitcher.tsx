@@ -6,28 +6,23 @@ import { useLocale } from '@/entities/locale';
 
 export const LocaleSwitcher: FC = () => {
   const { theme } = useTheme();
-  const { currentLanguage, toggleLanguage, t } = useLocale();
+  const { currentLanguage, toggleLanguage } = useLocale();
   const isDark = theme === 'dark';
 
   return (
     <motion.button
       onClick={toggleLanguage}
-      whileHover={{ scale: 1.05, y: -1 }}
+      whileHover={{ scale: 1.05 }}
       whileTap={{ scale: 0.95 }}
       className={cn(
-        "px-3 py-1.5 rounded text-sm font-medium relative overflow-hidden",
-        "before:absolute before:inset-0 before:opacity-20 before:bg-gradient-to-r before:from-transparent before:via-current before:to-transparent before:translate-x-[-100%]",
-        "hover:before:animate-[shimmer_1s_ease-in-out]",
+        "px-2 relative overflow-hidden group",
         isDark 
-          ? "bg-cyan-950/50 text-cyan-400 border border-cyan-500/30" 
-          : "bg-indigo-100/50 text-indigo-700 border border-indigo-200"
+          ? "text-cyan-400 hover:text-cyan-300" 
+          : "text-indigo-600 hover:text-indigo-500"
       )}
     >
-      <span className="relative z-10 inline-flex items-center gap-1.5">
-        {t(`language.${currentLanguage}`)}
-        <span className="text-xs opacity-50">
-          {currentLanguage === 'en' ? '🇬🇧' : '🇷🇺'}
-        </span>
+      <span className="relative z-10 font-cyber tracking-widest uppercase text-xs">
+        {currentLanguage === 'en' ? 'EN' : 'RU'}
       </span>
     </motion.button>
   );

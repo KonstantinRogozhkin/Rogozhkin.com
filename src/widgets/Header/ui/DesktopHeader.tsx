@@ -7,6 +7,7 @@ import { cn } from '@/shared/lib/utils';
 import { useTheme } from '@/entities/theme';
 import { useLocale } from '@/entities/locale';
 import { Container } from '@/shared/ui/layouts';
+import { RiHome4Line, RiCustomerService2Line, RiBriefcase2Line, RiProfileLine, RiMailLine } from 'react-icons/ri';
 
 interface DesktopHeaderProps {
   isScrolled: boolean;
@@ -18,11 +19,11 @@ export const DesktopHeader: FC<DesktopHeaderProps> = ({ isScrolled }) => {
   const isDark = theme === 'dark';
 
   const navItems = [
-    { href: '#hero', label: 'menu.home' },
-    { href: '#services', label: 'menu.services' },
-    { href: '#portfolio', label: 'menu.portfolio' },
-    { href: '#resume', label: 'menu.resume' },
-    { href: '#contact', label: 'menu.contact' },
+    { href: '#hero', label: 'menu.home', icon: RiHome4Line },
+    { href: '#services', label: 'menu.services', icon: RiCustomerService2Line },
+    { href: '#portfolio', label: 'menu.portfolio', icon: RiBriefcase2Line },
+    { href: '#resume', label: 'menu.resume', icon: RiProfileLine },
+    { href: '#contact', label: 'menu.contact', icon: RiMailLine },
   ];
 
   return (
@@ -61,7 +62,7 @@ export const DesktopHeader: FC<DesktopHeaderProps> = ({ isScrolled }) => {
                   key={item.href}
                   href={item.href}
                   className={cn(
-                    "relative py-2 transition-all duration-200 hover:scale-[1.02]",
+                    "relative py-2 transition-all duration-200 hover:scale-[1.02] flex items-center gap-2",
                     isDark 
                       ? "text-cyan-100 hover:text-cyan-400" 
                       : "text-zinc-600 hover:text-indigo-600"
@@ -70,13 +71,15 @@ export const DesktopHeader: FC<DesktopHeaderProps> = ({ isScrolled }) => {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 10 }}
                 >
-                  {t(item.label)}
-                  <span
-                    className={cn(
-                      "absolute bottom-0 left-0 w-full h-0.5 scale-x-0 transition-transform duration-200 hover:scale-x-100",
-                      isDark ? "bg-cyan-400" : "bg-indigo-600"
-                    )}
-                  />
+                  <item.icon className={cn(
+                    "w-4 h-4 transition-transform duration-300 hover:rotate-12",
+                    isDark 
+                      ? "text-cyan-400/70" 
+                      : "text-indigo-600/70"
+                  )} />
+                  <span className="font-cyber tracking-wide text-sm">
+                    {t(item.label)}
+                  </span>
                 </motion.a>
               ))}
             </AnimatePresence>

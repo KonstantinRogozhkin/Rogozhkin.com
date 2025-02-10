@@ -46,38 +46,50 @@ export const Footer: FC = () => {
       "mt-auto transition-colors duration-300 relative overflow-hidden",
       isDark 
         ? "bg-[#0B1120]/50 border-t border-cyan-500/10" 
-        : "bg-white/30 border-t border-slate-200/50 backdrop-blur-sm"
+        : "bg-gradient-to-b from-white via-indigo-50/20 to-white/80 border-t border-slate-200/50 backdrop-blur-sm"
     )}>
       {/* Decorative Elements */}
       <div className="absolute inset-0 pointer-events-none -z-10">
         <div className={cn(
-          "absolute inset-0 opacity-5",
-          isDark ? "bg-[url('/grid.svg')]" : "bg-[url('/grid-light.svg')]"
+          "absolute inset-0",
+          isDark 
+            ? "opacity-5 bg-[url('/grid.svg')]" 
+            : "opacity-[0.15] bg-[url('/grid-light.svg')] mix-blend-soft-light"
         )} />
       </div>
 
-      {isDark && (
-        <div className="absolute inset-0 pointer-events-none -z-10">
-          <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-cyan-500/5 blur-[100px] animate-pulse" />
-          <div className="absolute top-0 right-1/4 w-1/2 h-1/2 bg-purple-500/5 blur-[100px] animate-pulse delay-700" />
-        </div>
-      )}
+      {/* Background Effects */}
+      <div className="absolute inset-0 pointer-events-none -z-10">
+        {isDark ? (
+          <>
+            <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-cyan-500/5 blur-[100px] animate-pulse" />
+            <div className="absolute top-0 right-1/4 w-1/2 h-1/2 bg-purple-500/5 blur-[100px] animate-pulse delay-700" />
+          </>
+        ) : (
+          <>
+            <div className="absolute top-0 left-0 w-full h-1/2 bg-gradient-to-br from-indigo-100/40 via-transparent to-blue-100/40 animate-[gradient_8s_ease-in-out_infinite]" />
+            <div className="absolute bottom-0 right-0 w-full h-1/2 bg-gradient-to-tl from-blue-50/30 via-transparent to-indigo-50/30 animate-[gradient_8s_ease-in-out_infinite] delay-300" />
+            <div className="absolute inset-0 bg-white/40 mix-blend-overlay" />
+          </>
+        )}
+      </div>
 
       {/* Main Content */}
-      <Container className="py-12">
+      <Container className="py-12 relative">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
           {/* Logo and Description */}
           <div className="space-y-6">
-            <div
+            <a
+              href="#hero"
               className={cn(
-                "text-xl font-bold relative inline-block transition-transform duration-200 hover:scale-[1.02]",
+                "text-xl font-bold relative inline-block transition-transform duration-200 hover:scale-105 font-cyber",
                 isDark 
-                  ? "text-cyan-400 after:content-[''] after:absolute after:top-0 after:left-0 after:w-full after:h-full after:blur-lg after:bg-cyan-500/30 after:opacity-0 hover:after:opacity-100 after:transition-opacity"
+                  ? "text-cyan-400 after:content-[''] after:absolute after:inset-0 after:bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.2),transparent_70%)] after:-z-10 after:blur-lg after:opacity-0 hover:after:opacity-100 after:transition-opacity after:duration-300"
                   : "bg-gradient-to-r from-indigo-600 to-blue-600 bg-clip-text text-transparent"
               )}
             >
               {t('brand')}
-            </div>
+            </a>
             <div className="space-y-4">
               <p className={cn(
                 "text-sm max-w-md",
