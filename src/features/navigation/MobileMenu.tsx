@@ -1,8 +1,11 @@
 import { FC } from 'react';
 import { useMobileMenuStore } from './model';
+import { useLocale } from '@/entities/locale';
+import { LocaleSwitcher } from '@/features/locale-switcher';
 
 export const MobileMenu: FC = () => {
   const { isOpen, toggle } = useMobileMenuStore();
+  const { t } = useLocale();
 
   return (
     <>
@@ -10,9 +13,9 @@ export const MobileMenu: FC = () => {
       <button
         onClick={toggle}
         className="md:hidden p-2 hover:bg-primary/10 rounded-lg transition-colors"
-        aria-label={isOpen ? 'Закрыть меню' : 'Открыть меню'}
+        aria-label={t(isOpen ? 'menu.toggle.close' : 'menu.toggle.open')}
       >
-        <span className="sr-only">{isOpen ? 'Закрыть меню' : 'Открыть меню'}</span>
+        <span className="sr-only">{t(isOpen ? 'menu.toggle.close' : 'menu.toggle.open')}</span>
         {isOpen ? (
           <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -53,6 +56,11 @@ export const MobileMenu: FC = () => {
           `}
         >
           <div className="p-6 space-y-8 bg-card">
+            {/* Language Switcher */}
+            <div className="flex justify-end">
+              <LocaleSwitcher />
+            </div>
+
             {/* Navigation Links */}
             <div className="space-y-4">
               <a
@@ -60,47 +68,47 @@ export const MobileMenu: FC = () => {
                 onClick={toggle}
                 className="block py-2 text-lg hover:text-primary transition-colors"
               >
-                Опыт
+                {t('menu.experience')}
               </a>
               <a
                 href="#portfolio"
                 onClick={toggle}
                 className="block py-2 text-lg hover:text-primary transition-colors"
               >
-                Портфолио
+                {t('menu.portfolio')}
               </a>
               <a
                 href="#services"
                 onClick={toggle}
                 className="block py-2 text-lg hover:text-primary transition-colors"
               >
-                Услуги
+                {t('menu.services')}
               </a>
               <a
                 href="#blog"
                 onClick={toggle}
                 className="block py-2 text-lg hover:text-primary transition-colors"
               >
-                Блог
+                {t('menu.blog')}
               </a>
               <a
                 href="#contact"
                 onClick={toggle}
                 className="block py-2 text-lg hover:text-primary transition-colors"
               >
-                Контакты
+                {t('menu.contact')}
               </a>
             </div>
 
             {/* Contact Button */}
             <button className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
-              Связаться
+              {t('hero.buttons.contact')}
             </button>
 
             {/* Social Links */}
             <div className="space-y-4">
               <div className="text-sm font-medium text-default-foreground/60">
-                Социальные сети
+                {t('menu.social')}
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <a

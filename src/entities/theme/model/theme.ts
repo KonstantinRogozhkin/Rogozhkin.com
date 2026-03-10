@@ -35,12 +35,8 @@ const getInitialTheme = (): Theme => {
     }
   }
   
-  // Если нет сохраненной темы, проверяем системные настройки
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    return 'dark';
-  }
-  
-  return 'light';
+  // Если нет сохраненной темы, возвращаем темную тему по умолчанию
+  return 'dark';
 };
 
 export const useThemeStore = create<ThemeState>()(

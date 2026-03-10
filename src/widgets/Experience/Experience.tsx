@@ -1,105 +1,144 @@
 import { FC } from 'react';
 import { Section } from '@/shared/ui/Section/Section';
+import { motion } from 'framer-motion';
+import { useTheme } from '@/entities/theme';
+import { useLocale } from '@/entities/locale';
+import { cn } from '@/shared/lib/utils';
 
 export const Experience: FC = () => {
+  const { theme } = useTheme();
+  const { t } = useLocale();
+  const isDark = theme === 'dark';
+
+  const skills = [
+    { key: 'entrepreneurship' },
+    { key: 'product_growth' },
+    { key: 'ai' },
+    { key: 'development' },
+    { key: 'research' },
+    { key: 'analytics' }
+  ];
+
   return (
-    <Section id="experience" className="bg-card">
-      <div className="space-y-12">
-        {/* Section Header */}
-        <div className="text-center space-y-4">
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Опыт в AI и Автоматизации
+    <Section
+      id="experience"
+      className={cn(
+        "relative overflow-hidden",
+        isDark 
+          ? "before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_50%_50%,rgba(34,211,238,0.1),transparent_70%)]"
+          : "before:absolute before:inset-0 before:bg-[radial-gradient(circle_at_50%_50%,rgba(79,70,229,0.1),transparent_70%)]"
+      )}
+    >
+      {/* Cyberpunk Grid Background */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className={cn(
+          "absolute inset-0 opacity-5",
+          isDark ? "bg-[url('/grid.svg')]" : "bg-[url('/grid-light.svg')]"
+        )} />
+      </div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-12"
+        >
+          <h2 className={cn(
+            "text-3xl font-bold mb-4 tracking-wider uppercase",
+            isDark ? "text-cyan-400" : "text-indigo-600"
+          )}>
+            <span className="opacity-50">&lt;</span> {t('experience.title')} <span className="opacity-50">/&gt;</span>
           </h2>
-          <p className="text-lg text-default-foreground/60 max-w-3xl mx-auto">
-            Более 10 лет опыта в разработке интеллектуальных систем автоматизации продаж и коммуникаций
+          <p className={cn(
+            "text-lg max-w-2xl mx-auto",
+            isDark ? "text-cyan-100/70" : "text-zinc-600"
+          )}>
+            {t('experience.subtitle')}
           </p>
-        </div>
+        </motion.div>
 
-        {/* Timeline */}
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-primary/20" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {skills.map((skill, index) => (
+            <motion.div
+              key={skill.key}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
+              className={cn(
+                "group relative",
+                "before:absolute before:-inset-0.5 before:blur-sm before:opacity-50",
+                isDark 
+                  ? "before:bg-gradient-to-br before:from-cyan-500/30 before:via-transparent before:to-purple-500/30" 
+                  : "before:bg-gradient-to-br before:from-indigo-200/50 before:via-transparent before:to-blue-200/50"
+              )}
+            >
+              <div className={cn(
+                "relative p-6 rounded-lg transition-transform duration-300 will-change-transform hover:-translate-y-2",
+                isDark 
+                  ? "bg-[#0B1120]/90 border border-cyan-500/20" 
+                  : "bg-white/80 border border-slate-200"
+              )}>
+                {/* Decorative Corner Elements */}
+                <div className="absolute -top-px -left-px w-8 h-8 border-t border-l rounded-tl-lg border-current opacity-30" />
+                <div className="absolute -top-px -right-px w-8 h-8 border-t border-r rounded-tr-lg border-current opacity-30" />
+                <div className="absolute -bottom-px -left-px w-8 h-8 border-b border-l rounded-bl-lg border-current opacity-30" />
+                <div className="absolute -bottom-px -right-px w-8 h-8 border-b border-r rounded-br-lg border-current opacity-30" />
 
-          {/* Timeline items */}
-          <div className="space-y-16">
-            {/* AiSales */}
-            <div className="relative">
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-4 h-4 rounded-full bg-primary" />
-              </div>
-              <div className="bg-default rounded-2xl p-6 shadow-lg max-w-2xl mx-auto">
-                <div className="text-primary font-semibold mb-2">2019 - Настоящее время</div>
-                <h3 className="text-xl font-bold mb-2">Основатель и CTO в AiSales</h3>
-                <p className="text-default-foreground/80 mb-4">
-                  Разработка платформы автоматизации продаж с использованием искусственного интеллекта
+                {/* Top Gradient Line */}
+                <div className={cn(
+                  "absolute top-0 left-0 w-full h-0.5 bg-gradient-to-r",
+                  isDark 
+                    ? "from-cyan-500/50 via-transparent to-purple-500/50" 
+                    : "from-indigo-400/30 via-transparent to-blue-400/30"
+                )} />
+
+                <h3 className={cn(
+                  "text-xl font-bold mb-3",
+                  isDark ? "text-cyan-400" : "text-indigo-600"
+                )}>
+                  {t(`experience.skills.${skill.key}.title`)}
+                </h3>
+                <p className={cn(
+                  "mb-4",
+                  isDark ? "text-cyan-100/70" : "text-zinc-600"
+                )}>
+                  {t(`experience.skills.${skill.key}.description`)}
                 </p>
-                <ul className="space-y-2 text-default-foreground/70">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    Увеличение конверсии чатов в продажи с 12% до 34%
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    Рост среднего чека на 18% за счет интеллектуальных допродаж
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    Сокращение времени на рутинные операции на 65%
-                  </li>
-                </ul>
+                <div className="space-y-2">
+                  {(t(`experience.skills.${skill.key}.items`, { returnObjects: true }) as string[]).map((item, i) => (
+                    <motion.div
+                      key={i}
+                      whileHover={{ x: 4 }}
+                      className={cn(
+                        "flex items-center gap-2 px-3 py-1.5 rounded transition-colors",
+                        isDark 
+                          ? "bg-cyan-500/5 text-cyan-100/70 hover:bg-cyan-500/10" 
+                          : "bg-indigo-50/50 text-zinc-600 hover:bg-indigo-50/80"
+                      )}
+                    >
+                      <span className={cn(
+                        "w-1.5 h-1.5 rounded-full shrink-0",
+                        isDark ? "bg-cyan-400" : "bg-indigo-600"
+                      )} />
+                      {item}
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-            </div>
-
-            {/* Previous Experience */}
-            <div className="relative">
-              <div className="flex items-center justify-center mb-4">
-                <div className="w-4 h-4 rounded-full bg-primary/80" />
-              </div>
-              <div className="bg-default rounded-2xl p-6 shadow-lg max-w-2xl mx-auto">
-                <div className="text-primary font-semibold mb-2">2015 - 2019</div>
-                <h3 className="text-xl font-bold mb-2">Senior Software Engineer</h3>
-                <p className="text-default-foreground/80 mb-4">
-                  Разработка enterprise-решений для автоматизации бизнес-процессов
-                </p>
-                <ul className="space-y-2 text-default-foreground/70">
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    Внедрение ML-моделей для предиктивной аналитики
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    Оптимизация процессов обработки данных
-                  </li>
-                  <li className="flex items-start">
-                    <span className="text-primary mr-2">•</span>
-                    Разработка микросервисной архитектуры
-                  </li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Skills Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-          <div className="bg-default rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-primary mb-1">AI/ML</div>
-            <div className="text-sm text-default-foreground/60">GPT, TensorFlow, PyTorch</div>
-          </div>
-          <div className="bg-default rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-primary mb-1">Backend</div>
-            <div className="text-sm text-default-foreground/60">Python, Node.js, Go</div>
-          </div>
-          <div className="bg-default rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-primary mb-1">Frontend</div>
-            <div className="text-sm text-default-foreground/60">React, TypeScript, Next.js</div>
-          </div>
-          <div className="bg-default rounded-xl p-4 text-center">
-            <div className="text-2xl font-bold text-primary mb-1">DevOps</div>
-            <div className="text-sm text-default-foreground/60">Docker, K8s, AWS</div>
-          </div>
+            </motion.div>
+          ))}
         </div>
       </div>
+
+      {isDark && (
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute bottom-0 left-1/4 w-1/2 h-1/2 bg-cyan-500/5 blur-[100px] animate-pulse" />
+          <div className="absolute top-0 right-1/4 w-1/2 h-1/2 bg-purple-500/5 blur-[100px] animate-pulse delay-700" />
+        </div>
+      )}
     </Section>
   );
 }; 
