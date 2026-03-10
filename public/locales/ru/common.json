@@ -38,26 +38,86 @@
     }
   },
   "thanks": {
-    "title": "Финальный Блок",
-    "stack_title": "Технологический стек проекта:",
-    "ai_description": "Этот проект - демонстрация силы современных технологий. Весь дизайн и структура были созданы за 1 час 40 минут с помощью искусственного интеллекта.",
+    "title": "Резюме",
     "github_link": "Исходный код доступен на",
     "telegram_text": "Интересно узнать больше? Напишите мне в",
     "telegram_link_text": "Telegram",
-    "video_text": "для получения ссылки на видео с процессом создания."
+    "video_text": "для получения ссылки на видео с процессом создания.",
+    "profile_summary": {
+      "subtitle": "Senior AI & Software Engineer",
+      "summary": "Это сжатая выжимка моего профиля: backend, AI, production systems, performance, масштабирование и инженерная надёжность.",
+      "strengths": {
+        "items": [
+          "Production impact",
+          "Deep Python / systems thinking",
+          "AI-generated code refinement",
+          "Scale, latency, reliability, correctness"
+        ]
+      },
+      "exceptional_work": {
+        "label": "Кратко обо мне",
+        "text": "15+ лет я строю AI-driven и backend-системы для реального бизнеса: от архитектуры и API до production deployment, performance tuning и сопровождения под нагрузкой. Среди ключевых кейсов — AI-финансовый ассистент с аудиторией 1M+ пользователей, backend на Python/FastAPI/PostgreSQL/AWS, NLP/ML-модули для intent handling и forecasting, а также системная работа с качеством AI-generated кода: исправление логики, устранение hallucinated API, hardening, оптимизация latency и reliability."
+      },
+      "form": {
+        "title": "Ключевая экспертиза",
+        "description": "Основные направления, в которых у меня strongest engineering depth.",
+        "items": [
+          "Python как основной инженерный язык",
+          "TypeScript для full-stack и internal tooling",
+          "FastAPI, Node.js, React, PostgreSQL, AWS",
+          "LLM/NLP, AI agents, backend architecture, code quality"
+        ]
+      },
+      "cv": {
+        "title": "Что я строю",
+        "description": "Тип проектов и систем, в которых у меня есть сильный практический опыт.",
+        "items": [
+          "AI-продукты и automation systems для реальных пользователей",
+          "Высоконагруженные backend-сервисы и API",
+          "ML/NLP pipeline и интеграции с LLM",
+          "Внутренние инструменты для анализа, отладки и улучшения кода"
+        ]
+      },
+      "cover_letter": {
+        "title": "Инженерный фокус",
+        "description": "Подход, который я применяю в разработке и сопровождении production-систем.",
+        "items": [
+          "Correctness и устранение root cause, а не симптомов",
+          "Debugging сложной бизнес-логики и AI-generated output",
+          "Performance, caching, async pipelines и reliability",
+          "Security, maintainability и production readiness"
+        ]
+      },
+      "next_steps": {
+        "title": "Почему со мной работают",
+        "description": "То, что обычно ценят во мне как в инженере и technical partner.",
+        "items": [
+          "Умею доводить сырой AI output до production-grade результата",
+          "Работаю на стыке backend engineering, AI и product thinking",
+          "Есть опыт систем с большой аудиторией и реальной нагрузкой",
+          "Делаю упор на скорость, качество реализации и измеримый impact"
+        ]
+      },
+      "cta": {
+        "prefix": "Посмотри профиль на",
+        "middle": "или напиши мне в",
+        "suffix": "если хочешь обсудить проект, роль или сотрудничество.",
+        "button": "Открыть GitHub"
+      }
+    }
   },
   "resume": {
-    "subtitle": "Мой профессиональный путь в сфере технологий и предпринимательства",
+    "subtitle": "15+ лет в backend, AI и production-системах: Python, LLM/NLP, масштабирование, performance и инженерная надёжность",
     "timeline": {
       "neira": {
         "period": "Январь 2024 - Настоящее время",
         "position": "coFounder / CTO",
-        "description": "Разработка AI-агентов, способных автоматизировать любые бизнес-процессы: реклама, продажи, HR и многое другое."
+        "description": "Проектирую AI-агентов и backend-сервисы на Python/FastAPI для автоматизации продаж, HR, маркетинга и внутренних операций. Основной фокус: orchestration, интеграции, real-time inference, надёжность исполнения и доработка LLM-generated логики до production-grade качества."
       },
       "aisales": {
         "period": "Август 2017 - Февраль 2022",
         "position": "coFounder / CTO",
-        "description": "Разработка чат-ботов с использованием NLP и машинного обучения для автоматизации продаж и поддержки клиентов. Создание системы прогнозирования спроса с использованием анализа временных рядов."
+        "description": "Руководил разработкой AI-финансового ассистента, масштабированного до 1M+ пользователей. Построил production backend на Python/FastAPI/PostgreSQL/AWS, снижал latency через async pipelines и caching, поддерживал высокую доступность. Разрабатывал NLP/ML-модули для intent handling и прогнозирования, улучшив точность прогнозов на 25-40%."
       },
       "callprofit": {
         "period": "Январь 2015 - 2017",
@@ -150,7 +210,7 @@
   },
   "experience": {
     "title": "Опыт и навыки",
-    "subtitle": "Ключевые компетенции и технологии, которые я использую в разработке",
+    "subtitle": "Сильные стороны: production backend, Python, AI/ML, разбор и исправление AI-generated кода, performance и scalability",
     "skills": {
       "entrepreneurship": {
         "title": "Предпринимательство",
@@ -175,24 +235,25 @@
       },
       "ai": {
         "title": "Искусственный Интеллект",
-        "description": "Глубокая экспертиза в разработке и внедрении AI-решений, включая GPT, ML и NLP технологии.",
+        "description": "Практическая экспертиза в LLM, NLP и ML-системах: от prompt/workflow уровня до production-интеграций, evaluation и исправления model-generated output.",
         "items": [
-          "GPT",
+          "LLMs / GPT",
           "ML",
           "NLP",
-          "Neural Networks",
-          "Computer Vision"
+          "Code Evaluation",
+          "AI Agents"
         ]
       },
       "development": {
         "title": "IT / AI Разработка",
-        "description": "Создание высоконагруженных систем и микросервисов с использованием современного стека технологий.",
+        "description": "Разработка backend-систем и сервисов с акцентом на correctness, low latency, reliability, API design и сопровождение реальных production-нагрузок.",
         "items": [
           "Python",
           "TypeScript",
-          "React",
+          "FastAPI",
           "Node.js",
-          "Микросервисы"
+          "PostgreSQL",
+          "AWS"
         ]
       },
       "research": {
@@ -221,20 +282,20 @@
   },
   "portfolio": {
     "title": "Портфолио",
-    "description": "Избранные проекты, демонстрирующие мой опыт в разработке AI-решений и автоматизации бизнес-процессов",
+    "description": "Избранные AI- и backend-проекты с акцентом на production impact, масштаб, качество кода и инженерную надёжность",
     "readMore": "Подробнее",
     "projects": {
       "aida": {
         "title": "AIDA Finance Bot",
-        "description": "Финансовый чат-бот с аудиторией более 1 млн пользователей. Использует NLP и ML для автоматизации продаж и поддержки."
+        "description": "AI-финансовый ассистент с аудиторией 1M+ пользователей. Production backend на Python/FastAPI/PostgreSQL/AWS, NLP/ML для intent handling, forecasting и высоконагруженного взаимодействия."
       },
       "assistant": {
         "title": "AI Code Assistant",
-        "description": "Интеллектуальный помощник для разработчиков. Анализирует код, предлагает улучшения и помогает в отладке."
+        "description": "Инструмент анализа и улучшения кода, сфокусированный на проверке, отладке и исправлении LLM-generated решений: logic errors, hallucinated APIs, performance bottlenecks и broken abstractions."
       },
       "analytics": {
         "title": "Smart Analytics Platform",
-        "description": "Платформа для анализа данных с использованием ML. Предсказывает тренды и аномалии в реальном времени."
+        "description": "ML-платформа для аналитики и прогнозирования, ориентированная на time-series сценарии, аномалии в реальном времени и принятие решений на основе данных."
       }
     }
   }

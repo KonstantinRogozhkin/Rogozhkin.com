@@ -9,17 +9,37 @@ export const Thanks: FC = () => {
   const { t } = useLocale();
   const isDark = theme === 'dark';
 
-  const technologies = [
-    'React 18',
-    'TypeScript',
-    'Tailwind CSS',
-    'Framer Motion',
-    'React Router v7',
-    'Zustand',
-    'TanStack Query',
-    'Feature-Sliced Design',
-    'React Hook Form + Zod',
-    'Claude AI'
+  const strengths = t('thanks.profile_summary.strengths.items', { returnObjects: true }) as unknown as string[];
+  const formFields = t('thanks.profile_summary.form.items', { returnObjects: true }) as unknown as string[];
+  const cvItems = t('thanks.profile_summary.cv.items', { returnObjects: true }) as unknown as string[];
+  const coverLetterItems = t('thanks.profile_summary.cover_letter.items', { returnObjects: true }) as unknown as string[];
+  const nextSteps = t('thanks.profile_summary.next_steps.items', { returnObjects: true }) as unknown as string[];
+
+  const sections = [
+    {
+      key: 'form',
+      title: t('thanks.profile_summary.form.title'),
+      description: t('thanks.profile_summary.form.description'),
+      items: formFields
+    },
+    {
+      key: 'cv',
+      title: t('thanks.profile_summary.cv.title'),
+      description: t('thanks.profile_summary.cv.description'),
+      items: cvItems
+    },
+    {
+      key: 'cover_letter',
+      title: t('thanks.profile_summary.cover_letter.title'),
+      description: t('thanks.profile_summary.cover_letter.description'),
+      items: coverLetterItems
+    },
+    {
+      key: 'next_steps',
+      title: t('thanks.profile_summary.next_steps.title'),
+      description: t('thanks.profile_summary.next_steps.description'),
+      items: nextSteps
+    }
   ];
 
   return (
@@ -70,7 +90,7 @@ export const Thanks: FC = () => {
             
             <div className="space-y-8">
               <div className={cn(
-                "p-4 rounded border",
+                "p-6 rounded border",
                 isDark 
                   ? "bg-cyan-500/5 border-cyan-500/20" 
                   : "bg-indigo-50/50 border-indigo-200/50"
@@ -79,13 +99,20 @@ export const Thanks: FC = () => {
                   "text-lg text-center font-medium",
                   isDark ? "text-cyan-100" : "text-zinc-700"
                 )}>
-                  {t('thanks.stack_title')}
+                  {t('thanks.profile_summary.subtitle')}
                 </p>
 
-                <div className="flex flex-wrap justify-center gap-3 mt-4">
-                  {technologies.map((tech) => (
+                <p className={cn(
+                  "text-center mt-3",
+                  isDark ? "text-cyan-100/70" : "text-zinc-600"
+                )}>
+                  {t('thanks.profile_summary.summary')}
+                </p>
+
+                <div className="flex flex-wrap justify-center gap-3 mt-5">
+                  {strengths.map((item) => (
                     <motion.span
-                      key={tech}
+                      key={item}
                       whileHover={{ scale: 1.05, y: -2 }}
                       className={cn(
                         "px-4 py-1.5 rounded text-sm font-medium relative overflow-hidden",
@@ -96,7 +123,7 @@ export const Thanks: FC = () => {
                           : "bg-indigo-100/50 text-indigo-700 border border-indigo-200"
                       )}
                     >
-                      {tech}
+                      {item}
                     </motion.span>
                   ))}
                 </div>
@@ -119,16 +146,80 @@ export const Thanks: FC = () => {
                   "text-center font-medium mb-4",
                   isDark ? "text-cyan-100" : "text-zinc-700"
                 )}>
-                  <span className={isDark ? "text-cyan-400" : "text-indigo-600"}>{"<AI />"}</span> {t('thanks.ai_description')}
+                  <span className={isDark ? "text-cyan-400" : "text-indigo-600"}>{"<PROFILE />"}</span> {t('thanks.profile_summary.exceptional_work.label')}
                 </p>
-                
+
                 <p className={cn(
-                  "text-center",
+                  "text-center text-lg leading-relaxed",
+                  isDark ? "text-cyan-100/80" : "text-zinc-700"
+                )}>
+                  {t('thanks.profile_summary.exceptional_work.text')}
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {sections.map((section, index) => (
+                  <motion.div
+                    key={section.key}
+                    initial={{ opacity: 0, y: 16 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.4, delay: index * 0.08 }}
+                    className={cn(
+                      "rounded-lg p-6 h-full",
+                      isDark
+                        ? "bg-[#08101E]/90 border border-cyan-500/15"
+                        : "bg-slate-50/80 border border-slate-200"
+                    )}
+                  >
+                    <h3 className={cn(
+                      "text-xl font-bold",
+                      isDark ? "text-cyan-400" : "text-indigo-600"
+                    )}>
+                      {section.title}
+                    </h3>
+
+                    <p className={cn(
+                      "mt-3",
+                      isDark ? "text-cyan-100/70" : "text-zinc-600"
+                    )}>
+                      {section.description}
+                    </p>
+
+                    <ul className="mt-4 space-y-2">
+                      {section.items.map((item) => (
+                        <li
+                          key={item}
+                          className={cn(
+                            "flex items-start gap-3",
+                            isDark ? "text-cyan-100/75" : "text-zinc-700"
+                          )}
+                        >
+                          <span className={cn(
+                            "mt-2 block h-1.5 w-1.5 rounded-full shrink-0",
+                            isDark ? "bg-cyan-400" : "bg-indigo-600"
+                          )} />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                ))}
+              </div>
+                
+              <div className={cn(
+                "p-6 rounded border",
+                isDark
+                  ? "bg-cyan-500/5 border-cyan-500/20"
+                  : "bg-indigo-50/60 border-indigo-200/60"
+              )}>
+                <p className={cn(
+                  "text-center font-medium",
                   isDark ? "text-cyan-100/80" : "text-zinc-600"
                 )}>
-                  {t('thanks.github_link')}{' '}
+                  {t('thanks.profile_summary.cta.prefix')}{' '}
                   <motion.a 
-                    href="https://github.com/KonstantinRogozhkin/Rogozhkin.com" 
+                    href="https://github.com/KonstantinRogozhkin" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     whileHover={{ y: -1 }}
@@ -140,7 +231,7 @@ export const Thanks: FC = () => {
                     GitHub
                     <span className="text-xs opacity-50">↗</span>
                   </motion.a>
-                  . {t('thanks.telegram_text')}{' '}
+                  . {t('thanks.profile_summary.cta.middle')}{' '}
                   <motion.a 
                     href="https://t.me/konstik" 
                     target="_blank" 
@@ -154,8 +245,27 @@ export const Thanks: FC = () => {
                     {t('thanks.telegram_link_text')}
                     <span className="text-xs opacity-50">↗</span>
                   </motion.a>
-                  {' '}{t('thanks.video_text')}
+                  {' '}{t('thanks.profile_summary.cta.suffix')}
                 </p>
+
+                <div className="mt-6 flex justify-center">
+                  <motion.a
+                    href="https://github.com/KonstantinRogozhkin"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ y: -2, scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    className={cn(
+                      "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-semibold transition-colors",
+                      isDark
+                        ? "bg-cyan-500/15 text-cyan-300 border border-cyan-400/30 hover:bg-cyan-500/20"
+                        : "bg-indigo-600 text-white border border-indigo-500 hover:bg-indigo-500"
+                    )}
+                  >
+                    {t('thanks.profile_summary.cta.button')}
+                    <span className="text-sm opacity-80">↗</span>
+                  </motion.a>
+                </div>
               </div>
             </div>
           </div>

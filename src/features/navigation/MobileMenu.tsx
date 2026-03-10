@@ -6,10 +6,16 @@ import { LocaleSwitcher } from '@/features/locale-switcher';
 export const MobileMenu: FC = () => {
   const { isOpen, toggle } = useMobileMenuStore();
   const { t } = useLocale();
+  const navItems = [
+    { href: '#hero', label: t('menu.home') },
+    { href: '#services', label: t('menu.services') },
+    { href: '#portfolio', label: t('menu.portfolio') },
+    { href: '#resume', label: t('menu.resume') },
+    { href: '#contact', label: t('menu.contact') },
+  ];
 
   return (
     <>
-      {/* Menu Button */}
       <button
         onClick={toggle}
         className="md:hidden p-2 hover:bg-primary/10 rounded-lg transition-colors"
@@ -27,14 +33,12 @@ export const MobileMenu: FC = () => {
         )}
       </button>
 
-      {/* Mobile Menu Panel */}
       <div
         className={`
           fixed inset-0 z-50 md:hidden
           ${isOpen ? 'pointer-events-auto' : 'pointer-events-none'}
         `}
       >
-        {/* Backdrop with blur */}
         <div
           className={`
             fixed inset-0 bg-default/90 backdrop-blur-md
@@ -45,7 +49,6 @@ export const MobileMenu: FC = () => {
           aria-hidden="true"
         />
 
-        {/* Menu Content */}
         <nav
           className={`
             fixed right-0 top-0 bottom-0 w-3/4 max-w-sm
@@ -56,56 +59,23 @@ export const MobileMenu: FC = () => {
           `}
         >
           <div className="p-6 space-y-8 bg-card">
-            {/* Language Switcher */}
             <div className="flex justify-end">
               <LocaleSwitcher />
             </div>
 
-            {/* Navigation Links */}
             <div className="space-y-4">
-              <a
-                href="#experience"
-                onClick={toggle}
-                className="block py-2 text-lg hover:text-primary transition-colors"
-              >
-                {t('menu.experience')}
-              </a>
-              <a
-                href="#portfolio"
-                onClick={toggle}
-                className="block py-2 text-lg hover:text-primary transition-colors"
-              >
-                {t('menu.portfolio')}
-              </a>
-              <a
-                href="#services"
-                onClick={toggle}
-                className="block py-2 text-lg hover:text-primary transition-colors"
-              >
-                {t('menu.services')}
-              </a>
-              <a
-                href="#blog"
-                onClick={toggle}
-                className="block py-2 text-lg hover:text-primary transition-colors"
-              >
-                {t('menu.blog')}
-              </a>
-              <a
-                href="#contact"
-                onClick={toggle}
-                className="block py-2 text-lg hover:text-primary transition-colors"
-              >
-                {t('menu.contact')}
-              </a>
+              {navItems.map((item) => (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  onClick={toggle}
+                  className="block py-2 text-lg hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </a>
+              ))}
             </div>
 
-            {/* Contact Button */}
-            <button className="w-full px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors">
-              {t('hero.buttons.contact')}
-            </button>
-
-            {/* Social Links */}
             <div className="space-y-4">
               <div className="text-sm font-medium text-default-foreground/60">
                 {t('menu.social')}

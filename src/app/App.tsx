@@ -2,7 +2,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { RouterProvider } from 'react-router-dom';
 import { router } from './config/router';
 import { ErrorBoundary } from 'react-error-boundary';
-import { Suspense, useEffect } from 'react';
+import { Suspense } from 'react';
 import { useTheme } from '@/entities/theme';
 import { Container } from '@/shared/ui/layouts';
 
@@ -37,18 +37,11 @@ function ErrorFallback() {
 
 function AppContent() {
   const { theme } = useTheme();
-  
-  // Синхронизируем тему при монтировании компонента
-  useEffect(() => {
-    // Добавляем класс для Tailwind
-    if (theme === 'dark') {
-      document.documentElement.classList.add('dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-    }
-    // Устанавливаем data-theme атрибут
+
+  if (typeof document !== 'undefined') {
     document.documentElement.dataset.theme = theme;
-  }, [theme]);
+    document.documentElement.classList.toggle('dark', theme === 'dark');
+  }
 
   return (
     <Suspense

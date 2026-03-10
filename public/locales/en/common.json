@@ -38,26 +38,86 @@
     }
   },
   "thanks": {
-    "title": "Final Block",
-    "stack_title": "Project Technology Stack:",
-    "ai_description": "This project is a demonstration of modern technology power. The entire design and structure were created in 1 hour 40 minutes using artificial intelligence.",
+    "title": "Resume",
     "github_link": "Source code is available on",
     "telegram_text": "Want to learn more? Write to me in",
     "telegram_link_text": "Telegram",
-    "video_text": "to get a link to the video of the creation process."
+    "video_text": "to get a link to the video of the creation process.",
+    "profile_summary": {
+      "subtitle": "Senior AI & Software Engineer",
+      "summary": "This is a concise snapshot of my profile: backend, AI, production systems, performance, scalability, and engineering reliability.",
+      "strengths": {
+        "items": [
+          "Production impact",
+          "Deep Python / systems thinking",
+          "AI-generated code refinement",
+          "Scale, latency, reliability, correctness"
+        ]
+      },
+      "exceptional_work": {
+        "label": "About Me in Brief",
+        "text": "For 15+ years I have been building AI-driven products and backend systems for real businesses: from architecture and API design to production deployment, performance tuning, and operations under load. Key work includes an AI financial assistant that scaled to 1M+ users, backend systems in Python/FastAPI/PostgreSQL/AWS, NLP/ML modules for intent handling and forecasting, and continuous refinement of AI-generated code: fixing logic issues, removing hallucinated APIs, hardening reliability, and improving latency."
+      },
+      "form": {
+        "title": "Core Expertise",
+        "description": "The main areas where I have the strongest engineering depth.",
+        "items": [
+          "Python as the primary engineering language",
+          "TypeScript for full-stack development and internal tooling",
+          "FastAPI, Node.js, React, PostgreSQL, AWS",
+          "LLM/NLP, AI agents, backend architecture, code quality"
+        ]
+      },
+      "cv": {
+        "title": "What I Build",
+        "description": "The project types and systems where I have strong practical experience.",
+        "items": [
+          "AI products and automation systems for real users",
+          "High-load backend services and APIs",
+          "ML/NLP pipelines and LLM integrations",
+          "Internal tools for code analysis, debugging, and improvement"
+        ]
+      },
+      "cover_letter": {
+        "title": "Engineering Focus",
+        "description": "The principles I apply when building and maintaining production systems.",
+        "items": [
+          "Correctness and root-cause fixes instead of surface patches",
+          "Debugging complex business logic and AI-generated output",
+          "Performance, caching, async pipelines, and reliability",
+          "Security, maintainability, and production readiness"
+        ]
+      },
+      "next_steps": {
+        "title": "Why Teams Work With Me",
+        "description": "What is usually valued in me as an engineer and technical partner.",
+        "items": [
+          "I turn rough AI output into production-grade results",
+          "I work at the intersection of backend engineering, AI, and product thinking",
+          "I have experience with real scale and high-volume systems",
+          "I optimize for speed, quality of execution, and measurable impact"
+        ]
+      },
+      "cta": {
+        "prefix": "View the profile on",
+        "middle": "or message me on",
+        "suffix": "if you want to discuss a project, role, or collaboration.",
+        "button": "Open GitHub"
+      }
+    }
   },
   "resume": {
-    "subtitle": "My professional journey in technology and entrepreneurship",
+    "subtitle": "15+ years in backend, AI, and production systems: Python, LLM/NLP, scaling, performance, and engineering reliability",
     "timeline": {
       "neira": {
         "period": "January 2024 - Present",
         "position": "coFounder / CTO",
-        "description": "Development of AI agents capable of automating any business processes: advertising, sales, HR, and more."
+        "description": "Designing AI agents and Python/FastAPI backend services for sales, HR, marketing, and internal operations. Main focus: orchestration, integrations, real-time inference, execution reliability, and refining LLM-generated logic into production-grade systems."
       },
       "aisales": {
         "period": "August 2017 - February 2022",
         "position": "coFounder / CTO",
-        "description": "Development of chatbots using NLP and machine learning for sales automation and customer support. Creation of demand forecasting system using time series analysis."
+        "description": "Led engineering for an AI financial assistant that scaled to 1M+ users. Built production backend systems in Python/FastAPI/PostgreSQL/AWS, reduced latency through async pipelines and caching, and maintained high availability. Developed NLP/ML modules for intent handling and forecasting, improving prediction accuracy by 25-40%."
       },
       "callprofit": {
         "period": "January 2015 - 2017",
@@ -150,7 +210,7 @@
   },
   "experience": {
     "title": "Experience & Skills",
-    "subtitle": "Key competencies and technologies I use in development",
+    "subtitle": "Core strengths: production backend, Python, AI/ML, AI-generated code refinement, performance, and scalability",
     "skills": {
       "entrepreneurship": {
         "title": "Entrepreneurship",
@@ -175,24 +235,25 @@
       },
       "ai": {
         "title": "Artificial Intelligence",
-        "description": "Deep expertise in developing and implementing AI solutions, including GPT, ML, and NLP technologies.",
+        "description": "Applied expertise in LLM, NLP, and ML systems, from prompt/workflow design to production integration, evaluation, and correction of model-generated output.",
         "items": [
-          "GPT",
+          "LLMs / GPT",
           "ML",
           "NLP",
-          "Neural Networks",
-          "Computer Vision"
+          "Code Evaluation",
+          "AI Agents"
         ]
       },
       "development": {
         "title": "IT / AI Development",
-        "description": "Building high-load systems and microservices using modern technology stack.",
+        "description": "Building backend systems and services with a focus on correctness, low latency, reliability, API design, and real-world production workloads.",
         "items": [
           "Python",
           "TypeScript",
-          "React",
+          "FastAPI",
           "Node.js",
-          "Microservices"
+          "PostgreSQL",
+          "AWS"
         ]
       },
       "research": {
@@ -221,20 +282,20 @@
   },
   "portfolio": {
     "title": "Portfolio",
-    "description": "Selected projects showcasing my experience in AI development and business process automation",
+    "description": "Selected AI and backend projects focused on production impact, scale, code quality, and engineering reliability",
     "readMore": "Learn More",
     "projects": {
       "aida": {
         "title": "AIDA Finance Bot",
-        "description": "Financial chatbot with over 1M users. Uses NLP and ML for sales automation and support."
+        "description": "AI financial assistant with 1M+ users. Production backend in Python/FastAPI/PostgreSQL/AWS with NLP/ML for intent handling, forecasting, and high-volume interactions."
       },
       "assistant": {
         "title": "AI Code Assistant",
-        "description": "Intelligent assistant for developers. Analyzes code, suggests improvements, and helps with debugging."
+        "description": "Code analysis and improvement tool focused on reviewing, debugging, and correcting LLM-generated solutions: logic errors, hallucinated APIs, performance bottlenecks, and broken abstractions."
       },
       "analytics": {
         "title": "Smart Analytics Platform",
-        "description": "ML-powered data analytics platform. Predicts trends and anomalies in real-time."
+        "description": "ML-powered analytics and forecasting platform for time-series scenarios, real-time anomalies, and data-driven decision-making."
       }
     }
   }

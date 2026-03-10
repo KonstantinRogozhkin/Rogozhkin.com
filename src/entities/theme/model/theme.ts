@@ -11,18 +11,20 @@ interface ThemeState {
 
 // Функция для установки темы в DOM
 const applyTheme = (theme: Theme) => {
-  document.documentElement.dataset.theme = theme;
-  // Также добавим класс для Tailwind
-  if (theme === 'dark') {
-    document.documentElement.classList.add('dark');
-  } else {
-    document.documentElement.classList.remove('dark');
+  if (typeof document === 'undefined') {
+    return;
   }
+
+  document.documentElement.dataset.theme = theme;
+  document.documentElement.classList.toggle('dark', theme === 'dark');
 };
 
 // Определяем начальную тему
 const getInitialTheme = (): Theme => {
-  // Проверяем сохраненную тему
+  if (typeof window === 'undefined') {
+    return 'dark';
+  }
+
   const savedTheme = localStorage.getItem('theme-storage');
   if (savedTheme) {
     try {
@@ -30,12 +32,11 @@ const getInitialTheme = (): Theme => {
       if (parsed.state && (parsed.state.theme === 'light' || parsed.state.theme === 'dark')) {
         return parsed.state.theme;
       }
-    } catch (e) {
-      console.error('Error parsing saved theme:', e);
+    } catch {
+      localStorage.removeItem('theme-storage');
     }
   }
-  
-  // Если нет сохраненной темы, возвращаем темную тему по умолчанию
+
   return 'dark';
 };
 
@@ -56,8 +57,7 @@ export const useThemeStore = create<ThemeState>()(
     }),
     {
       name: 'theme-storage',
-      onRehydrateStorage: (state) => {
-        // После восстановления состояния из хранилища применяем тему
+      onRehydrateStorage: () => (state) => {
         if (state) {
           applyTheme(state.theme);
         }

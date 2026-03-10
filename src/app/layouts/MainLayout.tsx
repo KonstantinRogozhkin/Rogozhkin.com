@@ -18,9 +18,11 @@ export const MainLayout: FC<MainLayoutProps> = ({ children }) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const nextIsScrolled = window.scrollY > 20;
+      setIsScrolled((prev) => (prev === nextIsScrolled ? prev : nextIsScrolled));
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);

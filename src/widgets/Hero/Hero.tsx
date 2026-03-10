@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useMemo } from 'react';
 import { Section } from '@/shared/ui/Section/Section';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTheme } from '@/entities/theme';
@@ -13,6 +13,14 @@ export const Hero: FC = () => {
   const opacity = useTransform(scrollY, [0, 900], [1, 0]);
   const scale = useTransform(scrollY, [0, 900], [1, 0.8]);
   const y = useTransform(scrollY, [0, 900], [0, 100]);
+  const backgroundBlobs = useMemo(
+    () => [
+      { x: ['-10%', '8%', '-4%'], y: ['-5%', '12%', '2%'] },
+      { x: ['55%', '70%', '60%'], y: ['10%', '25%', '15%'] },
+      { x: ['30%', '42%', '35%'], y: ['55%', '68%', '58%'] },
+    ],
+    []
+  );
 
   return (
     <Section 
@@ -23,7 +31,7 @@ export const Hero: FC = () => {
         "after:absolute after:inset-0",
         isDark 
           ? "after:bg-[radial-gradient(circle_at_50%_-20%,rgba(34,211,238,0.2),transparent_70%)] after:bg-[#0B1120]/40" 
-          : "after:bg-[radial-gradient(circle_at_50%_-20%,rgba(79,70,229,0.1),transparent_70%)] after:bg-gradient-to-b after:from-white after:to-gray-50/80"
+          : "after:bg-gradient-to-b after:from-white after:to-gray-50/80"
       )}
     >
       {/* Cyberpunk Grid Background */}
@@ -34,9 +42,8 @@ export const Hero: FC = () => {
         )} />
       </div>
 
-      {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-10">
-        {Array.from({ length: 3 }).map((_, i) => (
+        {backgroundBlobs.map((blob, i) => (
           <motion.div
             key={i}
             className={cn(
@@ -44,16 +51,8 @@ export const Hero: FC = () => {
               isDark ? "bg-cyan-900" : "bg-indigo-600"
             )}
             animate={{
-              x: [
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-                Math.random() * window.innerWidth,
-              ],
-              y: [
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-                Math.random() * window.innerHeight,
-              ],
+              x: blob.x,
+              y: blob.y,
             }}
             transition={{
               duration: 20,

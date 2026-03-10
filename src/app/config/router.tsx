@@ -1,5 +1,5 @@
 import { lazy } from 'react';
-import { createBrowserRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { MainLayout } from '../layouts/MainLayout';
 
 // Lazy loaded pages
@@ -18,7 +18,7 @@ export const router = createBrowserRouter([
       },
       {
         path: '*',
-        element: <Navigate to="/" replace />,
+        element: <NotFoundPage />,
       },
     ],
   },
