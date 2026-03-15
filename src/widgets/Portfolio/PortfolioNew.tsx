@@ -1,10 +1,10 @@
-import { FC, useState, memo } from 'react';
+import { FC, useState } from 'react';
 import { Section } from '@/shared/ui/layouts';
-import { VideoModal } from '@/shared/ui/VideoModal';
+import { VideoPlayer } from '@/shared/ui/VideoPlayer';
 import { useTheme } from '@/entities/theme';
 import { useLocale } from '@/entities/locale';
 import { cn } from '@/shared/lib/utils';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface Video {
   title: string;
@@ -20,11 +20,11 @@ interface Project {
   videos?: Video[];
 }
 
-const PortfolioComponent: FC = () => {
+export const Portfolio: FC = () => {
   const { theme } = useTheme();
   const { t } = useLocale();
   const isDark = theme === 'dark';
-  const [selectedVideo, setSelectedVideo] = useState<{ url: string; title: string } | null>(null);
+  const [expandedProject, setExpandedProject] = useState<number | null>(null);
 
   const projects: Project[] = [
     {
@@ -92,22 +92,39 @@ const PortfolioComponent: FC = () => {
         {projects.map((project, index) => (
           <motion.div
             key={project.title}
+            layout
             style={{ animationDelay: `${index * 100}ms` }}
             className={cn(
               "group relative rounded-lg transition-all duration-300",
               "opacity-0 animate-[fadeInUp_0.4s_ease-out_forwards]",
+              expandedProject === index ? "lg:col-span-2 xl:col-span-3" : "",
               isDark 
                 ? "bg-[#0B1120]/90 border border-cyan-500/20 hover:border-cyan-500/40" 
                 : "bg-white/80 border border-slate-200 hover:border-indigo-300"
             )}
           >
             <div className="p-6">
-              <h3 className={cn(
-                "text-xl font-bold mb-3",
-                isDark ? "text-cyan-400" : "text-indigo-600"
-              )}>
-                {project.title}
-              </h3>
+              <div className="flex items-start justify-between mb-3">
+                <h3 className={cn(
+                  "text-xl font-bold",
+                  isDark ? "text-cyan-400" : "text-indigo-600"
+                )}>
+                  {project.title}
+                </h3>
+                {project.videos && project.videos.length > 0 && (
+                  <button
+                    onClick={() => setExpandedProject(expandedProject === index ? null : index)}
+                    className={cn(
+                      "px-3 py-1 text-xs font-medium rounded-md transition-all",
+                      isDark
+                        ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20"
+                        : "bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100"
+                    )}
+                  >
+                    {expandedProject === index ? 'Скрыть видео' : 'Показать видео'}
+                  </button>
+                )}
+              </div>
 
               <p className={cn(
                 "mb-4",
@@ -145,29 +162,6 @@ const PortfolioComponent: FC = () => {
                 </div>
               )}
 
-              {project.videos && project.videos.length > 0 && (
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.videos.map((video, videoIdx) => (
-                    <button
-                      key={videoIdx}
-                      onClick={() => setSelectedVideo(video)}
-                      className={cn(
-                        "inline-flex items-center gap-1.5 px-3 py-2 rounded-md text-sm font-medium transition-all duration-300",
-                        "relative overflow-hidden group/btn",
-                        isDark 
-                          ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20 hover:border-cyan-500/40" 
-                          : "bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100 hover:border-indigo-300"
-                      )}
-                    >
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                      </svg>
-                      {video.title}
-                    </button>
-                  ))}
-                </div>
-              )}
-
               <div className="flex flex-wrap gap-2 mb-4">
                 {project.tags.map(tag => (
                   <span
@@ -198,21 +192,42 @@ const PortfolioComponent: FC = () => {
                 {t('portfolio.readMore')} →
               </a>
             </div>
+
+            <AnimatePresence>
+              {expandedProject === index && project.videos && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="overflow-hidden"
+                >
+                  <div className={cn(
+                    "p-6 pt-0 grid grid-cols-1 md:grid-cols-2 gap-6",
+                    isDark ? "border-t border-cyan-500/10" : "border-t border-slate-200"
+                  )}>
+                    {project.videos.map((video, videoIdx) => (
+                      <div key={videoIdx} className="space-y-2">
+                        <h4 className={cn(
+                          "text-sm font-medium",
+                          isDark ? "text-cyan-300" : "text-indigo-500"
+                        )}>
+                          {video.title}
+                        </h4>
+                        <VideoPlayer
+                          src={video.url}
+                          title={video.title}
+                          className="shadow-lg"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
           </motion.div>
         ))}
       </div>
-
-      {/* Video Modal */}
-      {selectedVideo && (
-        <VideoModal
-          isOpen={!!selectedVideo}
-          onClose={() => setSelectedVideo(null)}
-          videoUrl={selectedVideo.url}
-          title={selectedVideo.title}
-        />
-      )}
     </Section>
   );
 };
-
-export const Portfolio = memo(PortfolioComponent); 

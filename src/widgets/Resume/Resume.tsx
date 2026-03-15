@@ -20,6 +20,10 @@ const getTimelineData = (t: (key: string) => string) => [
     company: 'AISales',
     position: t('resume.timeline.aisales.position'),
     description: t('resume.timeline.aisales.description'),
+    demoVideos: {
+      label: t('resume.timeline.aisales.demoVideos.label'),
+      links: ['https://youtu.be/hVCfZOopJcY', 'https://youtu.be/PE-GaVYK0GM']
+    },
     icon: (
       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
     )
@@ -91,6 +95,44 @@ export const Resume: FC = () => {
           )}>
             {t('resume.subtitle')}
           </p>
+          
+          {/* Download Resume Button */}
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="pt-4"
+          >
+            <motion.a
+              href="/resume.pdf"
+              download="Konstantin_Rogozhkin_Resume.pdf"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className={cn(
+                "inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300",
+                "relative overflow-hidden group",
+                isDark 
+                  ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20 hover:border-cyan-500/40" 
+                  : "bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100 hover:border-indigo-300"
+              )}
+            >
+              <svg 
+                className="w-5 h-5 transition-transform duration-300 group-hover:-translate-y-0.5" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                stroke="currentColor"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              {t('resume.downloadButton')}
+              <div className={cn(
+                "absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-300",
+                "bg-gradient-to-r from-transparent via-current to-transparent translate-x-[-100%] group-hover:translate-x-[100%]",
+                "group-hover:animate-[shimmer_1s_ease-in-out]"
+              )} />
+            </motion.a>
+          </motion.div>
         </div>
 
         {/* Experience Timeline */}
@@ -195,6 +237,36 @@ export const Resume: FC = () => {
                             )}>
                               {item.description}
                             </p>
+                          )}
+                          {item.demoVideos && (
+                            <div className={cn(
+                              "mt-3 flex flex-wrap items-center gap-2",
+                              isDark ? "text-cyan-100/70" : "text-zinc-600"
+                            )}>
+                              <span className="text-sm font-medium">{item.demoVideos.label}:</span>
+                              {item.demoVideos.links.map((link: string, idx: number) => (
+                                <motion.a
+                                  key={idx}
+                                  href={link}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  whileHover={{ scale: 1.05 }}
+                                  whileTap={{ scale: 0.95 }}
+                                  className={cn(
+                                    "inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-medium transition-all duration-300",
+                                    "relative overflow-hidden group",
+                                    isDark 
+                                      ? "bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 hover:bg-cyan-500/20 hover:border-cyan-500/40" 
+                                      : "bg-indigo-50 text-indigo-600 border border-indigo-200 hover:bg-indigo-100 hover:border-indigo-300"
+                                  )}
+                                >
+                                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                                  </svg>
+                                  Demo {idx + 1}
+                                </motion.a>
+                              ))}
+                            </div>
                           )}
                           {item.achievements && (
                             <ul className={cn(

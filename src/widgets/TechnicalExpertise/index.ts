@@ -1,0 +1,1 @@
+export { TechnicalExpertise } from './TechnicalExpertise';
