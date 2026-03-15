@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konstantin Rogozhkin - Senior AI & Software Engineer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        .container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            display: flex;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 35%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid rgba(255, 255, 255, 0.3);
+            margin: 0 auto 20px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .title {
+            font-size: 13px;
+            opacity: 0.9;
+            font-weight: 300;
+            line-height: 1.4;
+        }
+
+        .section {
+            margin-bottom: 30px;
+        }
+
+        .section-title {
+            font-size: 15px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .contact-icon {
+            width: 18px;
+            margin-right: 10px;
+            opacity: 0.9;
+            flex-shrink: 0;
+        }
+
+        .skill-item {
+            margin-bottom: 14px;
+        }
+
+        .skill-name {
+            font-size: 12px;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        .skill-bar {
+            height: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .skill-level {
+            height: 100%;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 3px;
+        }
+
+        .tech-stack-item {
+            font-size: 11px;
+            margin-bottom: 8px;
+            padding-left: 12px;
+            position: relative;
+        }
+
+        .tech-stack-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            opacity: 0.8;
+        }
+
+        .qr-section {
+            text-align: center;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .qr-code {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 10px;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        .qr-code img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .qr-label {
+            font-size: 10px;
+            opacity: 0.8;
+        }
+
+        /* Main Content */
+        .main-content {
+            width: 65%;
+            padding: 40px 40px 40px 35px;
+        }
+
+        .main-title {
+            font-size: 32px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 8px;
+        }
+
+        .main-subtitle {
+            font-size: 15px;
+            color: #7f8c8d;
+            margin-bottom: 25px;
+            font-weight: 300;
+        }
+
+        .main-section {
+            margin-bottom: 30px;
+        }
+
+        .main-section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 15px;
+            padding-bottom: 6px;
+            border-bottom: 3px solid #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .experience-item {
+            margin-bottom: 22px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid #e8eaf6;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .experience-position {
+            font-size: 15px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .experience-period {
+            font-size: 11px;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .experience-company {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .experience-description {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .experience-achievements {
+            margin-top: 8px;
+        }
+
+        .achievement-item {
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 4px;
+            padding-left: 15px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .achievement-item::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        .metric-highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .summary-text {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.7;
+            text-align: justify;
+            margin-bottom: 12px;
+        }
+
+        .key-achievements {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .achievement-card {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+        }
+
+        .achievement-number {
+            font-size: 20px;
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 4px;
+        }
+
+        .achievement-label {
+            font-size: 10px;
+            color: #555;
+            line-height: 1.4;
+        }
+
+        .education-item {
+            margin-bottom: 18px;
+            padding-left: 25px;
+            position: relative;
+        }
+
+        .education-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid #e8eaf6;
+        }
+
+        .education-degree {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 4px;
+        }
+
+        .education-school {
+            font-size: 12px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .education-period {
+            font-size: 11px;
+            color: #7f8c8d;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <div class="profile-photo">
+                    <img src="file:///Users/konstantin/AllProjects/Rogozhkin/Rogozhkin.com/public/main-photo.png" alt="Konstantin Rogozhkin">
+                </div>
+                <div class="name">Konstantin Rogozhkin</div>
+                <div class="title">Senior AI & Software Engineer<br>CTO • Entrepreneur</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Contact</div>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>konstantin@rogozhkin.com</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">📍</div>
+                    <div>Mar del Plata, Argentina</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div>linkedin.com/in/konstantinrogozhkin</div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">🐙</div>
+                    <div>github.com/konstantinRogozhkin</div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Core Skills</div>
+                <div class="skill-item">
+                    <div class="skill-name">Python / FastAPI</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 95%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">AI/ML & LLMs</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 92%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">TypeScript / Node.js</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 85%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">PostgreSQL / AWS</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 88%"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">System Architecture</div>
+                    <div class="skill-bar">
+                        <div class="skill-level" style="width: 90%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Tech Stack</div>
+                <div class="tech-stack-item">Python 3.11+, FastAPI</div>
+                <div class="tech-stack-item">Node.js, TypeScript</div>
+                <div class="tech-stack-item">PostgreSQL, Redis</div>
+                <div class="tech-stack-item">AWS, Docker, K8s</div>
+                <div class="tech-stack-item">OpenAI, LangChain</div>
+                <div class="tech-stack-item">Dialogflow, Corezoid</div>
+                <div class="tech-stack-item">React, TailwindCSS</div>
+                <div class="tech-stack-item">Git, CI/CD</div>
+            </div>
+
+            <div class="qr-section">
+                <div class="qr-code">
+                    <img src="file:///Users/konstantin/AllProjects/Rogozhkin/Rogozhkin.com/public/linkedin-qr.png" alt="LinkedIn QR">
+                </div>
+                <div class="qr-label">Scan for LinkedIn</div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="main-section">
+                <div class="main-section-title">Professional Summary</div>
+                <p class="summary-text">
+                    Senior AI & Software Engineer with <strong>15+ years</strong> of experience building production-grade backend systems and AI-driven products. Specialized in Python, LLM/NLP, and scalable architectures. Successfully scaled an AI financial assistant to <strong class="metric-highlight">1M+ users</strong> with peak revenue of <strong class="metric-highlight">$77K/month</strong>.
+                </p>
+                <p class="summary-text">
+                    Core strengths: production backend development, AI-generated code refinement, system architecture, performance tuning, and leading technical teams from concept to deployment. Proven track record of building <strong>3+ profitable tech businesses</strong> and delivering measurable impact.
+                </p>
+
+                <div class="key-achievements">
+                    <div class="achievement-card">
+                        <div class="achievement-number">1M+</div>
+                        <div class="achievement-label">Users scaled on AI platform</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">$77K</div>
+                        <div class="achievement-label">Peak monthly revenue</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">3+</div>
+                        <div class="achievement-label">Successful tech businesses</div>
+                    </div>
+                    <div class="achievement-card">
+                        <div class="achievement-number">40%</div>
+                        <div class="achievement-label">ML accuracy improvement</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <div class="main-section-title">Professional Experience</div>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-position">coFounder / CTO</div>
+                        <div class="experience-period">Jan 2024 - Present</div>
+                    </div>
+                    <div class="experience-company">NEiRA</div>
+                    <div class="experience-description">
+                        Designing AI agents and Python/FastAPI backend services for sales, HR, marketing, and internal operations automation. Focus on orchestration, integrations, real-time inference, and refining LLM-generated logic into production-grade systems.
+                    </div>
+                    <div class="experience-achievements">
+                        <div class="achievement-item">Built AI orchestration platform using Corezoid for multi-agent workflows</div>
+                        <div class="achievement-item">Implemented real-time inference pipelines with <span class="metric-highlight">sub-200ms latency</span></div>
+                        <div class="achievement-item">Automated sales processes reducing manual work by <span class="metric-highlight">60%</span></div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-position">coFounder / CTO</div>
+                        <div class="experience-period">Aug 2017 - Feb 2022</div>
+                    </div>
+                    <div class="experience-company">AISales</div>
+                    <div class="experience-description">
+                        Led engineering for an AI financial assistant that scaled to <span class="metric-highlight">1M+ users</span> with peak revenue of <span class="metric-highlight">$77K/month</span>. Built production backend in Python/FastAPI/PostgreSQL/AWS, reduced latency through async pipelines and caching, maintained high availability.
+                    </div>
+                    <div class="experience-achievements">
+                        <div class="achievement-item">Scaled from 0 to <span class="metric-highlight">1M+ active users</span> with 99.9% uptime</div>
+                        <div class="achievement-item">Built conversational AI system for financial lead generation (credit matching bot)</div>
+                        <div class="achievement-item">Demo videos: <span class="metric-highlight">youtu.be/hVCfZOopJcY</span> • <span class="metric-highlight">youtu.be/PE-GaVYK0GM</span></div>
+                        <div class="achievement-item">Developed NLP/ML modules using Dialogflow improving intent accuracy by <span class="metric-highlight">25-40%</span></div>
+                        <div class="achievement-item">Optimized database queries reducing response time by <span class="metric-highlight">70%</span></div>
+                        <div class="achievement-item">Achieved <span class="metric-highlight">$77K monthly revenue</span> through AdSense monetization</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-position">coFounder / CTO</div>
+                        <div class="experience-period">Jan 2015 - 2017</div>
+                    </div>
+                    <div class="experience-company">CallProfit</div>
+                    <div class="experience-description">
+                        Built complete IT infrastructure for call center operations from scratch.
+                    </div>
+                    <div class="experience-achievements">
+                        <div class="achievement-item">Implemented Bitrix24 CRM and Oktell call-center with custom integrations</div>
+                        <div class="achievement-item">Developed real-time analytics dashboards improving conversion by <span class="metric-highlight">35%</span></div>
+                        <div class="achievement-item">Automated business processes reducing operational costs by <span class="metric-highlight">40%</span></div>
+                        <div class="achievement-item">Built and managed dev team of 5+ engineers</div>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-position">Co-Founder</div>
+                        <div class="experience-period">Jan 2007 - 2013</div>
+                    </div>
+                    <div class="experience-company">AviHost</div>
+                    <div class="experience-description">
+                        Co-founded hosting company from concept to commercial launch. Developed business plan, pricing strategy, and marketing campaigns. Achieved top search engine rankings through SEO optimization.
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-section">
+                <div class="main-section-title">Education</div>
+                <div class="education-item">
+                    <div class="education-degree">Information Systems Economist</div>
+                    <div class="education-school">Vyatka State University of Humanities</div>
+                    <div class="education-period">2007 - 2012 • Applied Informatics in Economics</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

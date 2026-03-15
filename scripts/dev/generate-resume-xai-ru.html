@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Константин Рогожкин - Tech Team Lead</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        @page {
+            size: A4;
+            margin: 0;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: #ffffff;
+        }
+
+        .container {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            display: flex;
+        }
+
+        /* Left Sidebar */
+        .sidebar {
+            width: 35%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px 30px;
+        }
+
+        .profile-section {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            border: 5px solid rgba(255,255,255,0.3);
+            margin: 0 auto 20px;
+            object-fit: cover;
+        }
+
+        .name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .title {
+            font-size: 14px;
+            opacity: 0.95;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 11px;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .skill-item {
+            background: rgba(255,255,255,0.15);
+            padding: 8px 12px;
+            margin-bottom: 8px;
+            border-radius: 6px;
+            font-size: 11px;
+            border-left: 3px solid rgba(255,255,255,0.5);
+        }
+
+        .skill-name {
+            font-weight: 600;
+            margin-bottom: 3px;
+        }
+
+        .skill-level {
+            font-size: 10px;
+            opacity: 0.9;
+        }
+
+        .qr-section {
+            text-align: center;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px solid rgba(255,255,255,0.3);
+        }
+
+        .qr-code {
+            width: 120px;
+            height: 120px;
+            margin: 10px auto;
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+        }
+
+        /* Main Content */
+        .main-content {
+            width: 65%;
+            padding: 40px 35px;
+        }
+
+        .header-section {
+            margin-bottom: 25px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .summary {
+            font-size: 12px;
+            color: #555;
+            line-height: 1.7;
+            text-align: justify;
+            background: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #667eea;
+            border-radius: 4px;
+        }
+
+        .section {
+            margin-bottom: 25px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 3px solid #667eea;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+            margin-bottom: 15px;
+        }
+
+        .expertise-card {
+            background: #f8f9fa;
+            padding: 12px;
+            border-radius: 6px;
+            border-left: 3px solid #667eea;
+        }
+
+        .expertise-card h4 {
+            font-size: 12px;
+            color: #667eea;
+            margin-bottom: 6px;
+            font-weight: 700;
+        }
+
+        .expertise-card p {
+            font-size: 10px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        .experience-item {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .experience-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 12px;
+            height: 12px;
+            background: #667eea;
+            border-radius: 50%;
+            border: 3px solid #e8eaf6;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 6px;
+        }
+
+        .experience-position {
+            font-size: 14px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .experience-period {
+            font-size: 10px;
+            color: #7f8c8d;
+            font-weight: 500;
+        }
+
+        .experience-company {
+            font-size: 12px;
+            color: #667eea;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .experience-description {
+            font-size: 11px;
+            color: #555;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .metrics-row {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 8px;
+            margin: 12px 0;
+        }
+
+        .metric-box {
+            background: #eef6fc;
+            padding: 8px;
+            border-radius: 4px;
+            text-align: center;
+            border: 1px solid #d0e8f7;
+        }
+
+        .metric-value {
+            font-size: 14px;
+            font-weight: 700;
+            color: #667eea;
+            display: block;
+        }
+
+        .metric-label {
+            font-size: 9px;
+            color: #7f8c8d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .tech-tag {
+            background: #667eea;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 3px;
+            font-size: 9px;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="file:///Users/konstantin/AllProjects/Rogozhkin/Rogozhkin.com/public/main-photo.png" alt="Фото профиля" class="profile-photo">
+                <div class="name">Константин<br>Рогожкин</div>
+                <div class="title">Software Engineer<br>AI/ML Специалист</div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Контакты</div>
+                <div class="contact-item">
+                    <span>📧</span>
+                    <span>konstantin@rogozhkin.com</span>
+                </div>
+                <div class="contact-item">
+                    <span>📍</span>
+                    <span>Мар-дель-Плата, Аргентина</span>
+                </div>
+                <div class="contact-item">
+                    <span>🔗</span>
+                    <span>github.com/rogozhkin</span>
+                </div>
+                <div class="contact-item">
+                    <span>💼</span>
+                    <span>linkedin.com/in/rogozhkin</span>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Глубокая Экспертиза</div>
+                <div class="skill-item">
+                    <div class="skill-name">Python</div>
+                    <div class="skill-level">15+ лет | Эксперт</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">FastAPI</div>
+                    <div class="skill-level">Production API</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">pytest</div>
+                    <div class="skill-level">Эксперт тестирования</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">JavaScript/TypeScript</div>
+                    <div class="skill-level">8+ лет | Продвинутый</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">SQL</div>
+                    <div class="skill-level">12+ лет | Продвинутый</div>
+                </div>
+            </div>
+
+            <div class="sidebar-section">
+                <div class="sidebar-title">Ключевые Метрики</div>
+                <div class="skill-item">
+                    <div class="skill-name">1M+ Пользователей</div>
+                    <div class="skill-level">Масштабируемые системы</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">99.9% Uptime</div>
+                    <div class="skill-level">Production надёжность</div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">70% Latency ↓</div>
+                    <div class="skill-level">Оптимизация производительности</div>
+                </div>
+            </div>
+
+            <div class="qr-section">
+                <div style="font-size: 11px; margin-bottom: 8px;">LinkedIn Профиль</div>
+                <img src="/linkedin-qr.png" alt="LinkedIn QR" class="qr-code">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header-section">
+                <div class="tagline">Tech Team Lead | Эксперт по Качеству Кода</div>
+                <div class="summary">
+                    <strong>15+ лет</strong> создания масштабируемых высокопроизводительных систем с глубокой экспертизой в <strong>качестве кода</strong>, <strong>тестировании</strong> и <strong>отладке</strong>. Специализация на курировании AI-generated кода до production стандартов, внедрении комплексных testing frameworks и установке инженерных best practices. Подтверждённый опыт: 1M+ пользователей, 99.9% uptime, 70% снижение latency через систематическое профилирование и оптимизацию.
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Техническая Экспертиза</div>
+                <div class="expertise-grid">
+                    <div class="expertise-card">
+                        <h4>Качество Кода</h4>
+                        <p>Code review, линтинг (pylint, ruff), проверка типов (mypy), комплексная документация</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h4>Тестирование</h4>
+                        <p>pytest, unittest, интеграционные тесты, E2E тесты, покрытие тестами, CI/CD пайплайны</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h4>Производительность</h4>
+                        <p>Профилирование (cProfile, py-spy), оптимизация, стратегии кэширования, async паттерны</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h4>Отладка</h4>
+                        <p>Систематическая отладка, логирование, мониторинг, отслеживание ошибок (Sentry)</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h4>AI/ML</h4>
+                        <p>Интеграция LLM, NLP/ML пайплайны, курирование AI кода, оценка моделей</p>
+                    </div>
+                    <div class="expertise-card">
+                        <h4>DevOps</h4>
+                        <p>Docker, контейнеризация, AWS (EC2, S3, RDS), CI/CD, infrastructure as code</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Профессиональный Опыт</div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-company" style="font-size: 14px; font-weight: bold; color: #2c3e50;">NEiRA AI Platform</div>
+                        <div class="experience-period">Янв 2024 - Настоящее время</div>
+                    </div>
+                    <div class="experience-position" style="font-size: 12px; color: #667eea; font-weight: 600; margin-bottom: 6px;">Tech Team Lead / coFounder</div>
+                    <div class="experience-description">
+                        <strong>Руководство инженерной командой</strong> с фокусом на <strong>качество кода</strong> и инженерное совершенство. Проведение <strong>комплексных code review</strong>, обеспечение соответствия индустриальным стандартам эффективности, масштабируемости и надёжности. <strong>Курирование AI-generated примеров кода</strong> и валидация кода команды. Внедрение <strong>строгих testing frameworks</strong>, performance profiling и debugging workflows. Установка best practices и <strong>менторство инженеров</strong> в production-grade разработке.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python 3.11+</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">pytest</span>
+                        <span class="tech-tag">OpenAI API</span>
+                        <span class="tech-tag">LangChain</span>
+                        <span class="tech-tag">Docker</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-company" style="font-size: 14px; font-weight: bold; color: #2c3e50;">AIDA Finance Bot - AI Финансовый Ассистент</div>
+                        <div class="experience-period">Авг 2017 - Фев 2022</div>
+                    </div>
+                    <div class="experience-position" style="font-size: 12px; color: #667eea; font-weight: 600; margin-bottom: 6px;">Tech Team Lead / coFounder</div>
+                    <div class="experience-description">
+                        <strong>Руководство инженерной командой</strong> при создании масштабируемого AI-финансового ассистента для <span class="highlight">1M+ пользователей</span> с <span class="highlight">99.9% uptime</span>. Проведение <strong>ежедневных code review</strong> с контролем стандартов качества кода и best practices. Внедрение <strong>комплексных testing frameworks</strong> (pytest, integration tests), performance monitoring и debugging workflows. <strong>Менторство команды</strong> в оптимизации Python/FastAPI с достижением <span class="highlight">70% снижения latency</span> через profiling и code review feedback. Установка <strong>стандартов качества кода</strong>, security best practices и <strong>Docker контейнеризации</strong>. Контроль разработки NLP/ML пайплайнов с строгими метриками оценки, улучшение точности на 25-40%.
+                    </div>
+                    <div class="metrics-row">
+                        <div class="metric-box">
+                            <span class="metric-value">1M+</span>
+                            <span class="metric-label">Пользователей</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-value">99.9%</span>
+                            <span class="metric-label">Uptime</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-value">70%</span>
+                            <span class="metric-label">Latency ↓</span>
+                        </div>
+                        <div class="metric-box">
+                            <span class="metric-value">25-40%</span>
+                            <span class="metric-label">Точность ↑</span>
+                        </div>
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">Python 3.9+</span>
+                        <span class="tech-tag">FastAPI</span>
+                        <span class="tech-tag">PostgreSQL</span>
+                        <span class="tech-tag">Redis</span>
+                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Docker</span>
+                        <span class="tech-tag">pytest</span>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-company" style="font-size: 14px; font-weight: bold; color: #2c3e50;">CallProfit CRM</div>
+                        <div class="experience-period">Янв 2015 - 2017</div>
+                    </div>
+                    <div class="experience-position" style="font-size: 12px; color: #667eea; font-weight: 600; margin-bottom: 6px;">Tech Team Lead / coFounder</div>
+                    <div class="experience-description">
+                        <strong>Руководство командой из 5+ инженеров</strong> при внедрении enterprise-grade Bitrix24 CRM с кастомными модулями следуя <strong>best practices</strong>. Проведение <strong>code review</strong> всех REST API интеграций с обеспечением комплексной обработки ошибок и мониторинга. Создание automation workflows с <strong>покрытием тестами</strong>. Установка стандартов качества кода и менторство junior разработчиков.
+                    </div>
+                    <div class="tech-stack">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL</span>
+                        <span class="tech-tag">REST API</span>
+                        <span class="tech-tag">Bitrix24</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">Образование</div>
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-position">Прикладная Информатика (Экономика)</div>
+                        <div class="experience-period">2007 - 2012</div>
+                    </div>
+                    <div class="experience-company">Вятский Государственный Гуманитарный Университет</div>
+                    <div class="experience-description">
+                        Специалист по прикладной информатике с фокусом на экономические системы и разработку ПО.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
