@@ -5,8 +5,11 @@
   },
   "menu": {
     "home": "Главная",
-    "portfolio": "Портфолио",
+    "about": "О себе",
+    "skills": "Навыки",
     "experience": "Опыт",
+    "cases": "Кейсы",
+    "portfolio": "Портфолио",
     "contact": "Контакты",
     "services": "Услуги",
     "blog": "Блог",
@@ -25,8 +28,10 @@
     "copyright": "© {{year}} Константин Рогожкин. Все права защищены."
   },
   "hero": {
+    "greeting": "Привет, я",
     "name": "Константин Рогожкин",
-    "position": "CTO, предприниматель, разработчик и автоматизатор",
+    "title": "Software Engineer | AI/ML Специалист",
+    "subtitle": "Создаю масштабируемые высокопроизводительные системы с фокусом на качество кода и инженерное совершенство",
     "description": {
       "experience": "15+ лет помогаю бизнесу расти через автоматизацию и AI. Создатель более чем 3 успешных IT бизнесов.",
       "goal": "Моя личная цель - зарабатывать $1M в год с помощью IT и AI технологий.",
@@ -103,25 +108,116 @@
         "middle": "или напиши мне в",
         "suffix": "если хочешь обсудить проект, роль или сотрудничество.",
         "button": "Открыть GitHub"
+      },
+      "expertise": {
+        "title": "Глубокая Экспертиза",
+        "subtitle": "Production-grade навыки создания масштабируемых надежных систем"
+      }
+    }
+  },
+  "expertise": {
+    "title": "Техническая Экспертиза",
+    "subtitle": "Глубокая экспертиза в языках программирования, фреймворках и инженерных практиках",
+    "categories": {
+      "languages": {
+        "title": "Языки Программирования",
+        "items": [
+          {
+            "name": "Python",
+            "level": "Эксперт",
+            "years": "15+ лет",
+            "description": "Production-grade экспертиза: FastAPI, async/await, оптимизация производительности, testing frameworks (pytest, unittest)"
+          },
+          {
+            "name": "JavaScript/TypeScript",
+            "level": "Продвинутый",
+            "years": "8+ лет",
+            "description": "Full-stack разработка: React, Node.js, type-safe приложения"
+          },
+          {
+            "name": "SQL",
+            "level": "Продвинутый",
+            "years": "12+ лет",
+            "description": "PostgreSQL, MySQL: оптимизация запросов, индексирование, проектирование БД"
+          }
+        ]
+      },
+      "frameworks": {
+        "title": "Фреймворки и Библиотеки",
+        "items": [
+          {
+            "name": "FastAPI",
+            "category": "Backend",
+            "description": "Высокопроизводительные async API, OpenAPI документация, dependency injection"
+          },
+          {
+            "name": "pytest",
+            "category": "Тестирование",
+            "description": "Комплексные тестовые наборы, fixtures, параметризация, интеграционное тестирование"
+          },
+          {
+            "name": "React",
+            "category": "Frontend",
+            "description": "Компонентная архитектура, hooks, оптимизация производительности"
+          },
+          {
+            "name": "LangChain",
+            "category": "AI/ML",
+            "description": "Интеграция LLM, prompt engineering, оркестрация агентов"
+          }
+        ]
+      },
+      "practices": {
+        "title": "Инженерные Практики",
+        "items": [
+          {
+            "name": "Качество Кода",
+            "description": "Code review, линтинг (pylint, ruff), проверка типов (mypy), документация"
+          },
+          {
+            "name": "Тестирование",
+            "description": "Unit тесты, интеграционные тесты, E2E тесты, покрытие тестами, CI/CD пайплайны"
+          },
+          {
+            "name": "Производительность",
+            "description": "Профилирование (cProfile, py-spy), оптимизация, кэширование, async паттерны"
+          },
+          {
+            "name": "Отладка",
+            "description": "Систематическая отладка, логирование, мониторинг, отслеживание ошибок (Sentry)"
+          },
+          {
+            "name": "DevOps",
+            "description": "Docker, контейнеризация, AWS, CI/CD, infrastructure as code"
+          }
+        ]
       }
     }
   },
   "resume": {
-    "subtitle": "15+ лет в backend, AI и production-системах: Python, LLM/NLP, масштабирование, performance и инженерная надёжность",
+    "subtitle": "15+ лет создания масштабируемых высокопроизводительных систем: Глубокая экспертиза в Python, AI/ML, качестве кода, отладке и production надёжности",
+    "downloadButton": "Скачать резюме",
     "timeline": {
       "neira": {
         "period": "Январь 2024 - Настоящее время",
-        "position": "coFounder / CTO",
-        "description": "Проектирую AI-агентов и backend-сервисы на Python/FastAPI для автоматизации продаж, HR, маркетинга и внутренних операций. Основной фокус: orchestration, интеграции, real-time inference, надёжность исполнения и доработка LLM-generated логики до production-grade качества."
+        "position": "Tech Team Lead / coFounder",
+        "description": "Руководство инженерной командой с фокусом на качество кода и инженерное совершенство. Проведение комплексных code review, обеспечение соответствия индустриальным стандартам эффективности, масштабируемости и надёжности. Курирование AI-generated примеров кода и валидация кода команды. Внедрение строгих testing frameworks, performance profiling и debugging workflows. Установка best practices и менторство инженеров в production-grade разработке."
       },
       "aisales": {
         "period": "Август 2017 - Февраль 2022",
-        "position": "coFounder / CTO",
-        "description": "Руководил разработкой AI-финансового ассистента, масштабированного до 1M+ пользователей. Построил production backend на Python/FastAPI/PostgreSQL/AWS, снижал latency через async pipelines и caching, поддерживал высокую доступность. Разрабатывал NLP/ML-модули для intent handling и прогнозирования, улучшив точность прогнозов на 25-40%."
+        "position": "Tech Team Lead / coFounder",
+        "description": "Руководство инженерной командой при создании масштабируемого AI-финансового ассистента для 1M+ пользователей с 99.9% uptime. Ежедневные code review с контролем стандартов качества кода и best practices. Внедрение комплексных testing frameworks (pytest, integration tests), performance monitoring и debugging workflows. Менторство команды в оптимизации Python/FastAPI с достижением 70% снижения latency через profiling и code review feedback. Установка стандартов качества кода, security best practices и контейнеризации с Docker. Контроль разработки NLP/ML пайплайнов с строгими метриками оценки, улучшение точности на 25-40%.",
+        "demoVideos": {
+          "label": "Демо диалоговой системы",
+          "links": [
+            "https://youtu.be/hVCfZOopJcY",
+            "https://youtu.be/PE-GaVYK0GM"
+          ]
+        }
       },
       "callprofit": {
         "period": "Январь 2015 - 2017",
-        "position": "coFounder / CTO",
+        "position": "Tech Team Lead / coFounder",
         "achievements": {
           "website": "Создание и внедрение веб-сайта",
           "crm": "Внедрение Bitrix24 CRM",
@@ -280,6 +376,97 @@
       }
     }
   },
+  "cases": {
+    "title": "Кейсы",
+    "subtitle": "Реальные проекты с измеримыми результатами и детальным описанием технической реализации",
+    "viewDetails": "Подробнее",
+    "closeDetails": "Закрыть",
+    "projects": {
+      "aisales": {
+        "title": "AIDA Finance Bot",
+        "subtitle": "AI Финансовый Ассистент - Production-Grade Качество",
+        "challenge": "Создание масштабируемой платформы диалогового AI для 1M+ пользователей с enterprise-level стандартами качества, производительности и надёжности.",
+        "solution": "Архитектура production backend на Python/FastAPI/PostgreSQL/AWS с фокусом на качество кода и инженерное совершенство. Внедрение комплексных testing frameworks (pytest, integration tests), performance profiling и debugging workflows. Установка процессов code review, security best practices и Docker контейнеризации. Разработка NLP/ML пайплайнов с строгими метриками оценки.",
+        "results": [
+          "Масштабирование от 0 до 1M+ активных пользователей",
+          "Достижение пикового дохода $77K/месяц через AdSense",
+          "Улучшение точности ML моделей на 25-40%",
+          "Поддержание 99.9% uptime в production",
+          "Снижение response time на 70% через оптимизацию БД"
+        ],
+        "technologies": [
+          "Python 3.9+",
+          "FastAPI",
+          "PostgreSQL",
+          "Redis",
+          "AWS (EC2, S3, RDS)",
+          "Dialogflow",
+          "Docker",
+          "Nginx"
+        ],
+        "metrics": {
+          "users": "1M+",
+          "revenue": "$77K/мес",
+          "uptime": "99.9%",
+          "accuracy": "+25-40%"
+        }
+      },
+      "callprofit": {
+        "title": "CallProfit CRM",
+        "subtitle": "Комплексная IT-инфраструктура для call-центра",
+        "challenge": "Построить с нуля полную IT-инфраструктуру для call-центра с интеграцией CRM, телефонии и аналитики",
+        "solution": "Внедрение Bitrix24 CRM с кастомными модулями, интеграция Oktell call-center, разработка real-time аналитики и автоматизация бизнес-процессов",
+        "results": [
+          "Увеличение конверсии на 35% через аналитику",
+          "Снижение операционных затрат на 40%",
+          "Автоматизация 80% рутинных процессов",
+          "Построение команды из 5+ инженеров"
+        ],
+        "technologies": [
+          "Bitrix24",
+          "Oktell",
+          "PHP",
+          "MySQL",
+          "Google DataStudio",
+          "REST API"
+        ],
+        "metrics": {
+          "conversion": "+35%",
+          "costs": "-40%",
+          "automation": "80%",
+          "team": "5+ инженеров"
+        }
+      },
+      "neira": {
+        "title": "NEiRA AI Platform",
+        "subtitle": "Платформа AI-агентов для автоматизации бизнеса",
+        "challenge": "Создать orchestration платформу для multi-agent workflows с real-time inference и production-grade надежностью",
+        "solution": "AI orchestration на Corezoid, Python/FastAPI backend для агентов, интеграции с LLM провайдерами, и рефакторинг AI-generated кода до production качества",
+        "results": [
+          "Автоматизация продаж с сокращением ручной работы на 60%",
+          "Real-time inference с latency <200ms",
+          "Успешный запуск multi-agent workflows",
+          "Production-grade качество AI-generated кода"
+        ],
+        "technologies": [
+          "Python 3.11+",
+          "FastAPI",
+          "Corezoid",
+          "OpenAI API",
+          "LangChain",
+          "PostgreSQL",
+          "Docker",
+          "AWS"
+        ],
+        "metrics": {
+          "automation": "60%",
+          "latency": "<200ms",
+          "agents": "Multi-agent",
+          "quality": "Production"
+        }
+      }
+    }
+  },
   "portfolio": {
     "title": "Портфолио",
     "description": "Избранные AI- и backend-проекты с акцентом на production impact, масштаб, качество кода и инженерную надёжность",
@@ -287,7 +474,23 @@
     "projects": {
       "aida": {
         "title": "AIDA Finance Bot",
-        "description": "AI-финансовый ассистент с аудиторией 1M+ пользователей. Production backend на Python/FastAPI/PostgreSQL/AWS, NLP/ML для intent handling, forecasting и высоконагруженного взаимодействия."
+        "description": "AI-финансовый ассистент с аудиторией 1M+ пользователей. Production backend на Python/FastAPI/PostgreSQL/AWS, NLP/ML для intent handling, forecasting и высоконагруженного взаимодействия.",
+        "metrics": [
+          "1M+ активных пользователей",
+          "$77K пиковый месячный доход",
+          "99.9% uptime",
+          "25-40% улучшение точности ML"
+        ],
+        "videos": [
+          {
+            "title": "Демо диалоговой системы #1",
+            "url": "https://youtu.be/hVCfZOopJcY"
+          },
+          {
+            "title": "Демо диалоговой системы #2",
+            "url": "https://youtu.be/PE-GaVYK0GM"
+          }
+        ]
       },
       "assistant": {
         "title": "AI Code Assistant",

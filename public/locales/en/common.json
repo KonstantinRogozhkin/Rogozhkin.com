@@ -22,11 +22,13 @@
     "description": "Development of intelligent systems and AI solutions. Business process automation using machine learning.",
     "navigation": "Navigation",
     "contacts": "Contacts",
-    "copyright": "© {{year}} Konstantin Rogozhkin. All rights reserved."
+    "copyright": " Konstantin Rogozhkin. All rights reserved."
   },
   "hero": {
+    "greeting": "Hi, I'm",
     "name": "Konstantin Rogozhkin",
-    "position": "CTO, Entrepreneur, Product Developer",
+    "title": "Software Engineer | AI/ML Specialist",
+    "subtitle": "Building scalable, high-performance systems with focus on code quality and engineering excellence",
     "description": {
       "experience": "15+ years helping businesses grow through automation and AI. Creator of more than 3 successful IT businesses.",
       "goal": "My personal goal is to earn $1M per year using IT and AI technologies.",
@@ -35,6 +37,89 @@
     "buttons": {
       "contact": "Contact",
       "portfolio": "Portfolio"
+    },
+    "expertise": {
+      "title": "Deep Expertise",
+      "subtitle": "Production-grade skills in building scalable, reliable systems"
+    }
+  },
+  "expertise": {
+    "title": "Technical Expertise",
+    "subtitle": "Deep expertise in programming languages, frameworks, and engineering practices",
+    "categories": {
+      "languages": {
+        "title": "Programming Languages",
+        "items": [
+          {
+            "name": "Python",
+            "level": "Expert",
+            "years": "15+ years",
+            "description": "Production-grade expertise: FastAPI, async/await, performance optimization, testing frameworks (pytest, unittest)"
+          },
+          {
+            "name": "JavaScript/TypeScript",
+            "level": "Advanced",
+            "years": "8+ years",
+            "description": "Full-stack development: React, Node.js, type-safe applications"
+          },
+          {
+            "name": "SQL",
+            "level": "Advanced",
+            "years": "12+ years",
+            "description": "PostgreSQL, MySQL: query optimization, indexing, database design"
+          }
+        ]
+      },
+      "frameworks": {
+        "title": "Frameworks & Libraries",
+        "items": [
+          {
+            "name": "FastAPI",
+            "category": "Backend",
+            "description": "High-performance async APIs, OpenAPI documentation, dependency injection"
+          },
+          {
+            "name": "pytest",
+            "category": "Testing",
+            "description": "Comprehensive test suites, fixtures, parametrization, integration testing"
+          },
+          {
+            "name": "React",
+            "category": "Frontend",
+            "description": "Component architecture, hooks, performance optimization"
+          },
+          {
+            "name": "LangChain",
+            "category": "AI/ML",
+            "description": "LLM integration, prompt engineering, agent orchestration"
+          }
+        ]
+      },
+      "practices": {
+        "title": "Engineering Practices",
+        "items": [
+          {
+            "name": "Code Quality",
+            "description": "Code reviews, linting (pylint, ruff), type checking (mypy), documentation"
+          },
+          {
+            "name": "Testing",
+            "description": "Unit tests, integration tests, E2E tests, test coverage, CI/CD pipelines"
+          },
+          {
+            "name": "Performance",
+            "description": "Profiling (cProfile, py-spy), optimization, caching, async patterns"
+          },
+          {
+            "name": "Debugging",
+            "description": "Systematic debugging, logging, monitoring, error tracking (Sentry)"
+          },
+          {
+            "name": "DevOps",
+            "description": "Docker, containerization, AWS, CI/CD, infrastructure as code"
+          }
+        ]
+      }
     }
   },
   "thanks": {
@@ -107,21 +192,29 @@
     }
   },
   "resume": {
-    "subtitle": "15+ years in backend, AI, and production systems: Python, LLM/NLP, scaling, performance, and engineering reliability",
+    "subtitle": "15+ years building scalable, high-performance systems: Deep expertise in Python, AI/ML, code quality, debugging, and production reliability",
+    "downloadButton": "Download Resume",
     "timeline": {
       "neira": {
         "period": "January 2024 - Present",
-        "position": "coFounder / CTO",
-        "description": "Designing AI agents and Python/FastAPI backend services for sales, HR, marketing, and internal operations. Main focus: orchestration, integrations, real-time inference, execution reliability, and refining LLM-generated logic into production-grade systems."
+        "position": "Tech Team Lead / coFounder",
+        "description": "Leading engineering team with focus on code quality and engineering excellence. Conducting comprehensive code reviews, ensuring adherence to industry standards for efficiency, scalability, and reliability. Curating AI-generated code examples and validating team's code output. Implementing rigorous testing frameworks, performance profiling, and debugging workflows. Establishing best practices and mentoring engineers in production-grade development."
       },
       "aisales": {
         "period": "August 2017 - February 2022",
-        "position": "coFounder / CTO",
-        "description": "Led engineering for an AI financial assistant that scaled to 1M+ users. Built production backend systems in Python/FastAPI/PostgreSQL/AWS, reduced latency through async pipelines and caching, and maintained high availability. Developed NLP/ML modules for intent handling and forecasting, improving prediction accuracy by 25-40%."
+        "position": "Tech Team Lead / coFounder",
+        "description": "Led engineering team building scalable AI financial assistant serving 1M+ users with 99.9% uptime. Conducted daily code reviews ensuring code quality standards and best practices. Implemented comprehensive testing frameworks (pytest, integration tests), performance monitoring, and debugging workflows. Mentored team in Python/FastAPI optimization achieving 70% latency reduction through profiling and code review feedback. Established code quality standards, security best practices, and containerization with Docker. Supervised NLP/ML pipeline development with rigorous evaluation metrics, improving accuracy by 25-40%.",
+        "demoVideos": {
+          "label": "Conversational AI Demo",
+          "links": [
+            "https://youtu.be/hVCfZOopJcY",
+            "https://youtu.be/PE-GaVYK0GM"
+          ]
+        }
       },
       "callprofit": {
         "period": "January 2015 - 2017",
-        "position": "coFounder / CTO",
+        "position": "Tech Team Lead / coFounder",
         "achievements": {
           "website": "Creation and implementation of website",
           "crm": "Implementation of Bitrix24 CRM",
@@ -280,6 +373,99 @@
       }
     }
   },
+  "cases": {
+    "title": "Case Studies",
+    "subtitle": "Real projects with measurable results and detailed technical implementation",
+    "viewDetails": "View Details",
+    "closeDetails": "Close Details",
+    "keyAchievements": "Key Achievements",
+    "technicalHighlights": "Technical Highlights",
+    "projects": {
+      "aisales": {
+        "title": "AIDA Finance Bot",
+        "subtitle": "AI Financial Assistant - Production-Grade Quality Standards",
+        "challenge": "Build a scalable conversational AI platform capable of handling 1M+ users with enterprise-level quality, performance, and reliability standards.",
+        "solution": "Architected production backend using Python/FastAPI/PostgreSQL/AWS with focus on code quality and engineering excellence. Implemented comprehensive testing frameworks (pytest, integration tests), performance profiling tools, and debugging workflows. Established code review processes, security best practices, and Docker containerization. Developed NLP/ML pipelines with rigorous evaluation metrics.",
+        "results": [
+          "Scaled from 0 to 1M+ active users",
+          "Achieved peak revenue of $77K/month via AdSense",
+          "Improved ML model accuracy by 25-40%",
+          "Maintained 99.9% uptime in production",
+          "Reduced response time by 70% through DB optimization"
+        ],
+        "technologies": [
+          "Python 3.9+",
+          "FastAPI",
+          "PostgreSQL",
+          "Redis",
+          "AWS (EC2, S3, RDS)",
+          "Dialogflow",
+          "Docker",
+          "Nginx"
+        ],
+        "metrics": {
+          "users": "1M+",
+          "revenue": "$77K/mo",
+          "uptime": "99.9%",
+          "accuracy": "+25-40%"
+        }
+      },
+      "callprofit": {
+        "title": "CallProfit CRM",
+        "subtitle": "Enterprise CRM with Quality Standards",
+        "challenge": "Build scalable IT infrastructure for call center operations with focus on reliability, performance, and code quality standards.",
+        "solution": "Implemented enterprise-grade Bitrix24 CRM with custom modules following best practices. Developed robust REST API integrations with comprehensive error handling and monitoring. Built automation workflows with testing coverage. Created analytics dashboards (Google DataStudio) with performance optimization. Established code quality standards and led team of 5+ engineers.",
+        "results": [
+          "Increased conversion by 35% through analytics",
+          "Reduced operational costs by 40%",
+          "Automated 80% of routine processes",
+          "Built team of 5+ engineers"
+        ],
+        "technologies": [
+          "Bitrix24",
+          "Oktell",
+          "PHP",
+          "MySQL",
+          "Google DataStudio",
+          "REST API"
+        ],
+        "metrics": {
+          "conversion": "+35%",
+          "costs": "-40%",
+          "automation": "80%",
+          "team": "5+ engineers"
+        }
+      },
+      "neira": {
+        "title": "NEiRA AI Platform",
+        "subtitle": "Multi-Agent AI with Code Quality Focus",
+        "challenge": "Create an AI agent platform with production-grade code quality, comprehensive testing, and reliable execution for enterprise automation.",
+        "solution": "Architected multi-agent system using Python/FastAPI with emphasis on engineering excellence. Curated AI-generated code examples, ensuring adherence to industry standards for efficiency, scalability, and reliability. Implemented rigorous testing frameworks, performance monitoring, and debugging workflows. Led code reviews and established best practices for production-grade AI systems. Integrated LLM APIs (OpenAI, LangChain) with quality validation.",
+        "results": [
+          "Automated sales reducing manual work by 60%",
+          "Real-time inference with <200ms latency",
+          "Successfully launched multi-agent workflows",
+          "Production-grade quality of AI-generated code"
+        ],
+        "technologies": [
+          "Python 3.11+",
+          "FastAPI",
+          "Corezoid",
+          "OpenAI API",
+          "LangChain",
+          "PostgreSQL",
+          "Docker",
+          "AWS"
+        ],
+        "metrics": {
+          "automation": "60%",
+          "latency": "<200ms",
+          "agents": "Multi-agent",
+          "quality": "Production"
+        }
+      }
+    }
+  },
   "portfolio": {
     "title": "Portfolio",
     "description": "Selected AI and backend projects focused on production impact, scale, code quality, and engineering reliability",
@@ -287,7 +473,23 @@
     "projects": {
       "aida": {
         "title": "AIDA Finance Bot",
-        "description": "AI financial assistant with 1M+ users. Production backend in Python/FastAPI/PostgreSQL/AWS with NLP/ML for intent handling, forecasting, and high-volume interactions."
+        "description": "AI financial assistant with 1M+ users. Production backend in Python/FastAPI/PostgreSQL/AWS with NLP/ML for intent handling, forecasting, and high-volume interactions.",
+        "metrics": [
+          "1M+ active users",
+          "$77K peak monthly revenue",
+          "99.9% uptime",
+          "25-40% ML accuracy improvement"
+        ],
+        "videos": [
+          {
+            "title": "Conversational AI Demo #1",
+            "url": "https://youtu.be/hVCfZOopJcY"
+          },
+          {
+            "title": "Conversational AI Demo #2",
+            "url": "https://youtu.be/PE-GaVYK0GM"
+          }
+        ]
       },
       "assistant": {
         "title": "AI Code Assistant",
